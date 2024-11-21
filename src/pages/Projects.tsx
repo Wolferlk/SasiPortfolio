@@ -2,21 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Github, ExternalLink } from 'lucide-react';
+import ProjectData from '../Data/Projectdata'; // Import your project data
 
 const Projects = () => {
-  const projects = [
-    {
-      id: 1,
-      title: 'Project One',
-      description: 'A modern web application built with React and Node.js',
-      image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97',
-      github: 'https://github.com/yourusername/project-one',
-      live: 'https://project-one.com',
-      technologies: ['React', 'Node.js', 'MongoDB'],
-    },
-    // Add your actual projects here
-  ];
-
   return (
     <div className="py-12">
       <motion.div
@@ -29,7 +17,7 @@ const Projects = () => {
         </h1>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
+          {ProjectData.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 20 }}

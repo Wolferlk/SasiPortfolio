@@ -3,30 +3,31 @@ import { motion } from 'framer-motion';
 import { useParams } from 'react-router-dom';
 import { Github, ExternalLink, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import ProjectData from '../Data/Projectdata'; // Import your project data
 
 const ProjectDetails = () => {
-  const { id } = useParams();
+  const { id } = useParams(); // Get the project ID from the URL parameters
 
-  // Replace with your actual project data
-  const project = {
-    id: 1,
-    title: 'Project One',
-    description: 'A comprehensive description of the project...',
-    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97',
-    github: 'https://github.com/yourusername/project-one',
-    live: 'https://project-one.com',
-    technologies: ['React', 'Node.js', 'MongoDB'],
-    features: [
-      'Feature 1 description',
-      'Feature 2 description',
-      'Feature 3 description',
-    ],
-    challenges: 'Description of challenges faced and solutions implemented...',
-    screenshots: [
-      'https://images.unsplash.com/photo-1517694712202-14dd9538aa97',
-      'https://images.unsplash.com/photo-1517694712202-14dd9538aa97',
-    ],
-  };
+  // Find the project matching the ID
+  const project = ProjectData.find((proj) => proj.id === parseInt(id || '0', 10));
+
+  // If no project is found, display a message
+  if (!project) {
+    return (
+      <div className="py-12 text-center">
+        <h1 className="text-4xl font-bold text-gray-300">
+          Project Not Found
+        </h1>
+        <Link
+          to="/projects"
+          className="inline-flex items-center gap-2 text-gray-300 hover:text-purple-500 transition-colors mt-8"
+        >
+          <ArrowLeft size={20} />
+          Back to Projects
+        </Link>
+      </div>
+    );
+  }
 
   return (
     <div className="py-12">

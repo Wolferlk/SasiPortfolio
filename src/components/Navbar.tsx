@@ -23,7 +23,7 @@ const Navbar = () => {
     const cvUrl = 'src/media/SasinduDiluragaCv.pdf';
     const link = document.createElement('a');
     link.href = cvUrl;
-    link.download = 'SasinduDiluranga-CV.pdf';
+    link.download = 'SasinduDiluragaCv.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

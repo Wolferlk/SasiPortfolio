@@ -19,7 +19,8 @@ const Navbar = () => {
 
   const handleDownloadCV = () => {
     // Replace with your actual CV file URL
-    const cvUrl = '/path-to-your-cv.pdf';
+   // const cvUrl = 'https://drive.google.com/file/d/1mGEdM9LA7D1eAYHT6LMPQiFdh_rUYNAc/view?usp=sharing';
+    const cvUrl = 'src/media/SasinduDiluragaCv.pdf';
     const link = document.createElement('a');
     link.href = cvUrl;
     link.download = 'SasinduDiluranga-CV.pdf';

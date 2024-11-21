@@ -30,7 +30,7 @@ const Home = () => {
               <motion.a
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                href="https://github.com/yourusername"
+                href="https://github.com/Wolferlk"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-colors"
@@ -40,7 +40,7 @@ const Home = () => {
               <motion.a
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                href="https://linkedin.com/in/yourusername"
+                href="www.linkedin.com/in/sasindu-diluranga-187532303"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-colors"

@@ -15,15 +15,15 @@ const Contact = () => {
     e.preventDefault();
     try {
       await emailjs.send(
-        'service_r2gsrcx',
-        'template_in59m4f',
+        'service_r2gsrcx', // Your service ID
+        'template_in59m4f', // Your template ID
         {
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
-          to_email: 'sasindu.diluranga@gmail.com',
+          to_email: 'sasindu.diluranga@gmail.com', // The recipient email
         },
-        'sasindu.diluranga@gmail.com'
+        'SUjXrcYq2rvW8bQHZ' 
       );
       setStatus('Message sent successfully!');
       setFormData({ name: '', email: '', message: '' });
@@ -31,7 +31,7 @@ const Contact = () => {
       setStatus('Failed to send message. Please try again.');
     }
   };
-
+  
   return (
 
 // {/* <div className="relative min-h-screen">

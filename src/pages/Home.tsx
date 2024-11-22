@@ -5,6 +5,25 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
+
+    <div className="relative min-h-screen">
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        className="absolute inset-0 w-full h-full object-cover z-0 filter brightness-25 opacity-5"
+      >
+        <source src="https://videos.pexels.com/video-files/3129595/3129595-uhd_2560_1440_30fps.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+
+
+
+
+
+
     <div className="min-h-[calc(100vh-5rem)] flex items-center">
       <div className="max-w-6xl mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -105,6 +124,7 @@ const Home = () => {
           </motion.div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

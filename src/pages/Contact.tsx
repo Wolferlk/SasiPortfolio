@@ -15,15 +15,15 @@ const Contact = () => {
     e.preventDefault();
     try {
       await emailjs.send(
-        'YOUR_SERVICE_ID',
-        'YOUR_TEMPLATE_ID',
+        'service_r2gsrcx',
+        'template_in59m4f',
         {
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
           to_email: 'sasindu.diluranga@gmail.com',
         },
-        'YOUR_USER_ID'
+        'sasindu.diluranga@gmail.com'
       );
       setStatus('Message sent successfully!');
       setFormData({ name: '', email: '', message: '' });
@@ -33,6 +33,24 @@ const Contact = () => {
   };
 
   return (
+
+// {/* <div className="relative min-h-screen">
+//       {/* Background Video */}
+//       <video
+//         autoPlay
+//         loop
+//         muted
+//         className="absolute inset-0 w-full h-full object-cover z-0 filter brightness-25 opacity-10"
+//       >
+//         <source src="https://videos.pexels.com/video-files/3129957/3129957-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+//         Your browser does not support the video tag.
+//       </video> */}
+
+
+
+
+
+
     <div className="py-12">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -52,7 +70,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-medium">Phone</h3>
-                  <p className="text-gray-300">+94 XX XXX XXXX</p>
+                  <p className="text-gray-300">+94 77 823 1121</p>
                 </div>
               </div>
 
@@ -72,7 +90,8 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-medium">Address</h3>
-                  <p className="text-gray-300">Colombo, Sri Lanka</p>
+                  <p className="text-gray-300">24a,Pokuna Rd,Keraminiya</p>
+                  <p className="text-gray-300">Ambalangoda , Sri Lanka</p>
                 </div>
               </div>
             </div>
@@ -129,6 +148,7 @@ const Contact = () => {
         </div>
       </motion.div>
     </div>
+    // </div>
   );
 };
 

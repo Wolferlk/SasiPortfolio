@@ -43,23 +43,27 @@ const ProjectData = [
     },
     {
       id: 3,
-      title: 'E-Commerce Platform',
-      description: 'A fully functional e-commerce application with user management and payment processing.',
-      image: 'https://images.unsplash.com/photo-1556742400-b5cdeb485b1d',
-      github: 'https://github.com/yourusername/e-commerce-platform',
-      live: 'https://ecommerce-platform.com',
-      technologies: ['React', 'Express', 'MySQL'],
+      title: 'Gym Management System',
+      description: 'A comprehensive web application for managing gym operations, user memberships, and payment processing.',
+      image: 'https://i.ibb.co/27Ccbky/D7296421-2-D94-4019-827-E-3569-B82-B1167.png',
+      github: 'https://github.com/your-repo/gym-management-system',
+      live: 'https://your-live-demo-link.com',
+      technologies: ['Wordpress'],
       features: [
-        'Product catalog with search and filtering',
-        'Secure payment gateway integration',
-        'Admin dashboard for inventory management',
+        'User registration and membership management',
+        'Integrated secure payment gateway',
+        'Admin dashboard for tracking users and payments',
+        'Attendance and session scheduling system',
+        'Real-time analytics and reporting'
       ],
-      challenges: 'Dealt with data consistency issues and resolved them using database transactions.',
+      challenges: 'Addressed challenges in syncing real-time user data across multiple sessions using WebSocket technology.',
       screenshots: [
-        'https://images.unsplash.com/photo-1556742400-b5cdeb485b1d',
-        'https://images.unsplash.com/photo-1556742400-b5cdeb485b1d',
+        'https://i.ibb.co/27Ccbky/D7296421-2-D94-4019-827-E-3569-B82-B1167.png',
+        'https://i.ibb.co/CQzMyZB/E2-DA4-FB8-57-F4-4-BA5-A6-F0-C2-AC16-DDA739.png',
+        
       ],
-    },
+    }
+    ,
   ];
   
   export default ProjectData;

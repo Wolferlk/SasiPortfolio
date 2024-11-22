@@ -23,17 +23,17 @@ const ProjectData = [
     {
       id: 2,
       title: 'Portfolio Website',
-      description: 'A personal portfolio to showcase projects, skills, and professional achievements.',
+      description: 'A personal portfolio showcasing projects, skills, and experience.',
       image: 'https://i.ibb.co/djjf3s1/244-FEFE5-7-A85-4-DE0-B561-BA25470-A0-CDF.png',
       github: 'https://github.com/Wolferlk/SasiPortfolio',
       live: 'https://sasindudiluranga.vercel.app',
-      technologies: ['HTML', 'CSS', 'JavaScript'],
+      technologies: ['React', 'Vercel', 'Tailwind', 'TypeScript', 'CSS'],
       features: [
-        'Interactive UI with animations',
-        'Dynamic project showcase with filtering options',
+        'Responsive design optimized for mobile and desktop',
+        'Dynamic project showcase ',
         'Contact form integrated with email service',
       ],
-      challenges: 'Optimized page load speed by implementing lazy loading for images.',
+      challenges: 'Ensuring the portfolio is visually appealing while maintaining fast loading times and responsive design',
       screenshots: [
         'https://i.ibb.co/djjf3s1/244-FEFE5-7-A85-4-DE0-B561-BA25470-A0-CDF.png',
         'https://i.ibb.co/bNBgs50/1-E2636-C7-C705-4-EF0-8-E4-B-4-DB00903-B2-C9.png',

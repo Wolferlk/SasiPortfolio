@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useParams } from 'react-router-dom';
 import { Github, ExternalLink, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import ProjectData from '../Data/Projectdata'; // Import your project data
+import ProjectData from '../pages/ProjectData'; // Import your project data
 
 const ProjectDetails = () => {
   const { id } = useParams(); // Get the project ID from the URL parameters

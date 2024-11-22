@@ -53,12 +53,61 @@ const ArtisticCareer = () => {
         description: "Released EDM Music Album With 12 featuring Artists",
         link: "https://example.com",
       },
+      {
+        name: "Nuhuru Akase",
+        photo: "https://via.placeholder.com/50",
+        date: "2024 Dec",
+        description: "Drum & Bass Modern sinhala Song With Deneth Viduranga ",
+        link: "https://example.com",
+      },
+      {
+        name: "Bhawa satana",
+        photo: "https://via.placeholder.com/50",
+        date: "2024 Aug ",
+        description: "Drum & Bass Modern sinhala Song With Deneth Viduranga",
+        link: "https://example.com",
+      },
+      {
+        name: "Sunfire Festival",
+        photo: "https://via.placeholder.com/50",
+        date: "2024 march ",
+        description: "Downsouth EDM Festival Play as Main Stream Dj",
+        link: "https://example.com",
+      },
+      {
+        name: "Rider Movie",
+        photo: "https://via.placeholder.com/50",
+        date: "2023 Aug ",
+        description: "Compose Movie Music As Movie Music Composer",
+        link: "https://example.com",
+      },
+      {
+        name: "Shades Of Romance",
+        photo: "https://via.placeholder.com/50",
+        date: "2023 May ",
+        description: "Released EDM Music Album With 12 featuring Artists",
+        link: "https://example.com",
+      },
       
     ],
   };
 
   return (
-    <div className="py-12 bg-black text-white min-h-screen">
+
+    <div className="relative min-h-screen">
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        className="absolute inset-0 w-full h-full object-cover z-0 filter brightness-25 opacity-10"
+      >
+        <source src="https://videos.pexels.com/video-files/2022395/2022395-hd_1920_1080_30fps.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      {/* Content Overlay */}
+      <div className="relative z-10 text-white">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -69,7 +118,7 @@ const ArtisticCareer = () => {
           <img
             src={artist.profilePic}
             alt={`${artist.name} profile`}
-            className="w-90 h-90 rounded-full shadow-lg  "
+            className="w-80 h-80 rounded-full shadow-lg  "
           />
           <div>
             <h1 className="text-5xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
@@ -152,6 +201,9 @@ const ArtisticCareer = () => {
         </div>
       </motion.div>
     </div>
+
+    </div>
+   
   );
 };
 

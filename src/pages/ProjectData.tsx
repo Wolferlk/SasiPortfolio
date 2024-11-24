@@ -40,9 +40,31 @@ const ProjectData = [
         'https://i.ibb.co/XJ8hxcJ/2-B9-AEF14-3706-4781-9-EE5-96-FE6-D02-F95-A.png',
         'https://i.ibb.co/t86bVmF/E1562-A32-75-AD-49-AC-8755-451-FF47-E12-BC.png'
       ],
+    },{
+      "id": 3,
+      "title": "Cannibal.co Website",
+      "description": "A modern e-commerce website for Cannibal.co, a branded clothing company, enabling users to browse and purchase products.",
+      "image": "https://i.ibb.co/3fF40qp/image.png", // Replace with your actual project image URL
+      "github": "https://github.com/Wolferlk/cannible", // Replace with your actual repository link
+      "live": "https://cannible.vercel.app/", // Replace with your live site URL
+      "technologies": ["TypeScript", "JavaScript", "Tailwind CSS"],
+      "features": [
+        "Responsive and modern UI for browsing products",
+        "Product catalog with detailed views",
+        "Add-to-cart functionality for seamless shopping",
+        "Cash-on-delivery payment option",
+        "Optimized for mobile and desktop users"
+      ],
+      "challenges": "Implemented efficient state management for cart functionality and optimized product loading using lazy loading techniques.",
+      "screenshots": [
+        "https://i.ibb.co/3fF40qp/image.png", // Replace with actual screenshots
+        "https://i.ibb.co/6sSytKy/4-BA12378-4089-47-F0-9-A44-3929272-DF994.png",
+        "https://i.ibb.co/k6k22hw/AC2-A2896-4-A46-456-D-A333-9-AA0745-C190-A.png",
+        "https://i.ibb.co/CJM11bK/B46-FF92-A-89-E3-4608-9-A1-D-A3356-B07-BC46.png" // Replace with actual screenshots
+      ]
     },
     {
-      id: 3,
+      id: 4,
       title: 'Gym Management System',
       description: 'A comprehensive web application for managing gym operations, user memberships, and payment processing.',
       image: 'https://i.ibb.co/27Ccbky/D7296421-2-D94-4019-827-E-3569-B82-B1167.png',
@@ -62,8 +84,7 @@ const ProjectData = [
         'https://i.ibb.co/CQzMyZB/E2-DA4-FB8-57-F4-4-BA5-A6-F0-C2-AC16-DDA739.png',
         
       ],
-    }
-    ,
+    },
   ];
   
   export default ProjectData;

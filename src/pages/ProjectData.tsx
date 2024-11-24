@@ -52,7 +52,6 @@ const ProjectData = [
         "Responsive and modern UI for browsing products",
         "Product catalog with detailed views",
         "Add-to-cart functionality for seamless shopping",
-        "Cash-on-delivery payment option",
         "Optimized for mobile and desktop users"
       ],
       "challenges": "Implemented efficient state management for cart functionality and optimized product loading using lazy loading techniques.",

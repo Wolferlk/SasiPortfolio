@@ -19,9 +19,30 @@ const ProjectData = [
         'https://i.ibb.co/tskHWGQ/FAE211-F2-C87-D-4112-8-FC3-27-D192716-D20.png',
         'https://i.ibb.co/gtCFB53/Whats-App-Image-2024-11-22-at-14-02-48-89c88d9c.jpg'
       ],
+    },{
+      "id": 2,
+      "title": "Cannibal.co Website",
+      "description": "A modern e-commerce website for Cannibal.co, a branded clothing company, enabling users to browse and purchase products.",
+      "image": "https://i.ibb.co/3fF40qp/image.png", // Replace with your actual project image URL
+      "github": "https://github.com/Wolferlk/cannible", // Replace with your actual repository link
+      "live": "https://cannible.vercel.app/", // Replace with your live site URL
+      "technologies": ["TypeScript", "JavaScript", "Tailwind CSS"],
+      "features": [
+        "Responsive and modern UI for browsing products",
+        "Product catalog with detailed views",
+        "Add-to-cart functionality for seamless shopping",
+        "Optimized for mobile and desktop users"
+      ],
+      "challenges": "Implemented efficient state management for cart functionality and optimized product loading using lazy loading techniques.",
+      "screenshots": [
+        "https://i.ibb.co/3fF40qp/image.png", 
+        "https://i.ibb.co/6sSytKy/4-BA12378-4089-47-F0-9-A44-3929272-DF994.png",
+        "https://i.ibb.co/k6k22hw/AC2-A2896-4-A46-456-D-A333-9-AA0745-C190-A.png",
+        "https://i.ibb.co/CJM11bK/B46-FF92-A-89-E3-4608-9-A1-D-A3356-B07-BC46.png" 
+      ]
     },
     {
-      id: 2,
+      id: 3,
       title: 'Portfolio Website',
       description: 'A personal portfolio showcasing projects, skills, and experience.',
       image: 'https://i.ibb.co/djjf3s1/244-FEFE5-7-A85-4-DE0-B561-BA25470-A0-CDF.png',
@@ -41,7 +62,7 @@ const ProjectData = [
         'https://i.ibb.co/t86bVmF/E1562-A32-75-AD-49-AC-8755-451-FF47-E12-BC.png'
       ],
     },{
-      "id": 3,
+      "id": 4,
       "title": "Cannibal.co Website",
       "description": "A modern e-commerce website for Cannibal.co, a branded clothing company, enabling users to browse and purchase products.",
       "image": "https://i.ibb.co/3fF40qp/image.png", // Replace with your actual project image URL
@@ -59,11 +80,11 @@ const ProjectData = [
         "https://i.ibb.co/3fF40qp/image.png", // Replace with actual screenshots
         "https://i.ibb.co/6sSytKy/4-BA12378-4089-47-F0-9-A44-3929272-DF994.png",
         "https://i.ibb.co/k6k22hw/AC2-A2896-4-A46-456-D-A333-9-AA0745-C190-A.png",
-        "https://i.ibb.co/CJM11bK/B46-FF92-A-89-E3-4608-9-A1-D-A3356-B07-BC46.png" // Replace with actual screenshots
+        "https://i.ibb.co/CJM11bK/B46-FF92-A-89-E3-4608-9-A1-D-A3356-B07-BC46.png" 
       ]
     },
     {
-      id: 4,
+      id: 5,
       title: 'Gym Management System',
       description: 'A comprehensive web application for managing gym operations, user memberships, and payment processing.',
       image: 'https://i.ibb.co/27Ccbky/D7296421-2-D94-4019-827-E-3569-B82-B1167.png',

@@ -103,7 +103,7 @@ const Home = () => {
                 <button
                   onClick={() => {
                     const link = document.createElement('a');
-                    link.href = '/path-to-your-cv.pdf';
+                    link.href = '/media/SasinduDilurangaCv.pdf';
                     link.download = 'SasinduDiluranga-CV.pdf';
                     document.body.appendChild(link);
                     link.click();

@@ -4,14 +4,22 @@ import { Briefcase } from 'lucide-react';
 
 const Experience = () => {
   const experiences = [
+   
     {
-      title: 'Senior Software Engineer',
-      company: 'Tech Company',
-      period: '2022 - Present',
-      description: 'Led development of multiple web applications...',
-      technologies: ['React', 'Node.js', 'AWS'],
+      title: 'Music Composer & Producer',
+      company: 'Wolfer SD MUSIC Records',
+      period: '2019 - Present',
+      description: 'Composed and produced music tracks, collaborating with artists to create engaging audio experiences.',
+      technologies: [ 'FL Studio', 'Pro Tools'],
     },
-    // Add your actual experiences here
+    {
+      title: 'Audio Engineer & Assistant',
+      company: 'Pearlbay Studio & Institute',
+      period: '2020 - 2022',
+      description: 'Engineered recording sessions and provided instruction in audio production techniques at a leading recording studio and educational institute.',
+      technologies: ['Audient 8024 Console', 'Pro Tools', 'Analog Audio Devices'],
+    },
+    // Add more experiences as needed
   ];
 
   return (

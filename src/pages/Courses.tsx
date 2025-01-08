@@ -4,16 +4,22 @@ import { motion } from 'framer-motion';
 const Courses = () => {
   const courses = [
     {
-      title: 'Full Stack Development',
-      provider: 'Coursera',
-      date: '2023',
-      certificate: 'https://coursera.org/certificate/xxx',
+      title: 'AI/ML Engineer',
+      provider: 'Sri Lanka Institute of Information Technology (SLIIT)',
+      date: '2024',
+      certificate: 'https://code.sliit.org/certificates/sylglahdrp',
     },
     {
-      title: 'Advanced React & Redux',
-      provider: 'Udemy',
-      date: '2023',
-      certificate: 'https://udemy.com/certificate/xxx',
+      title: 'Advance Mixing and Mastering Audio Engineer',
+      provider: 'PearlBay Institute',
+      date: '2021',
+      certificate: '',
+    },
+    {
+      title: 'Audio Engineer(NVQ Level 4)',
+      provider: 'Music Oven Institute',
+      date: '2018',
+      certificate: '',
     },
     // Add your actual courses here
   ];

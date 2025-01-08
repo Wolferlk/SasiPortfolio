@@ -1,28 +1,53 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code, Database, Palette, Terminal } from 'lucide-react';
+import { Code, Database, Palette, Terminal, Cloud, Music } from 'lucide-react';
 
 const Skills = () => {
   const skillCategories = [
     {
       title: 'Frontend Development',
       icon: <Code className="w-6 h-6" />,
-      skills: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS'],
+      skills: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Vue.js', 'SASS'],
     },
     {
       title: 'Backend Development',
       icon: <Terminal className="w-6 h-6" />,
-      skills: ['Node.js', 'Express', 'Python', 'Java'],
+      skills: ['Node.js', 'Express', 'Python', 'Java', 'Django', 'Flask', 'Spring Boot'],
     },
     {
       title: 'Database',
       icon: <Database className="w-6 h-6" />,
-      skills: ['MongoDB', 'PostgreSQL', 'Redis'],
+      skills: ['MongoDB', 'PostgreSQL', 'Redis', 'MySQL', 'SQLite', 'Firebase'],
+    },
+    {
+      title: 'Cloud & DevOps',
+      icon: <Cloud className="w-6 h-6" />,
+      skills: ['AWS', 'Docker', 'Kubernetes', 'Azure', 'CI/CD Pipelines', 'Terraform'],
     },
     {
       title: 'Design',
       icon: <Palette className="w-6 h-6" />,
-      skills: ['Figma', 'Adobe XD', 'Photoshop'],
+      skills: ['Figma', 'Adobe XD', 'Photoshop', 'Illustrator', 'Canva'],
+    },
+    {
+      title: 'Tools & Utilities',
+      icon: <Code className="w-6 h-6" />,
+      skills: ['Git', 'VS Code', 'JIRA', 'Postman', 'Webpack', 'Babel'],
+    },
+    {
+      title: 'Mobile Development',
+      icon: <Code className="w-6 h-6" />,
+      skills: ['React Native', 'Flutter', 'Kotlin', 'Swift'],
+    },
+    {
+      title: 'Data Science & AI',
+      icon: <Database className="w-6 h-6" />,
+      skills: ['Pandas', 'NumPy', 'TensorFlow', 'PyTorch', 'Scikit-learn', 'Matplotlib'],
+    },
+    {
+      title: 'Audio & Visual Experience',
+      icon: <Music className="w-6 h-6" />,
+      skills: ['Cubase','FL Studio','Adobe Audition', 'Premiere Pro', 'After Effects', 'Final Cut Pro', 'Logic Pro', 'Pro Tools'],
     },
   ];
 

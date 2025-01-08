@@ -103,8 +103,8 @@ const Home = () => {
                 <button
                   onClick={() => {
                     const link = document.createElement('a');
-                    link.href = '/media/SasinduDilurangaCv.pdf';
-                    link.download = 'SasinduDiluranga-CV.pdf';
+                    link.href = '/cv.pdf'; 
+                    link.download = 'Sasindu_Diluranga_0778231121.pdf'; 
                     document.body.appendChild(link);
                     link.click();
                     document.body.removeChild(link);
@@ -114,6 +114,7 @@ const Home = () => {
                   <Download className="w-5 h-5" />
                   Download CV
                 </button>
+
               </div>
             </motion.div>
           </div>

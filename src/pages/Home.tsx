@@ -101,19 +101,20 @@ const Home = () => {
                   <ArrowRight className="w-5 h-5" />
                 </Link>
                 <button
-                  onClick={() => {
-                    const link = document.createElement('a');
-                    link.href = '/cv.pdf'; 
-                    link.download = 'Sasindu_Diluranga_0778231121.pdf'; 
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                  }}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 transition-all text-lg font-medium"
-                >
-                  <Download className="w-5 h-5" />
-                  Download CV
-                </button>
+                onClick={() => {
+                  const link = document.createElement('a');
+                  link.href = 'https://drive.google.com/uc?id=1ON4JNhp1G5xBiCFZ53XKJpcsIaHE6-j1&export=download'; // Google Drive direct download link
+                  link.download = 'Sasindu_Diluranga_0778231121.pdf'; // Optional: Name the file
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 transition-all text-lg font-medium"
+              >
+                <Download className="w-5 h-5" />
+                Download CV
+              </button>
+
 
               </div>
             </motion.div>

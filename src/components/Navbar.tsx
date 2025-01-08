@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Download } from 'lucide-react';
 import { motion } from 'framer-motion';
 
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
@@ -18,12 +19,9 @@ const Navbar = () => {
   ];
 
   const handleDownloadCV = () => {
-    // Replace with your actual CV file URL
-   // const cvUrl = 'https://drive.google.com/file/d/1mGEdM9LA7D1eAYHT6LMPQiFdh_rUYNAc/view?usp=sharing';
-    const cvUrl = 'src/media/SasinduDiluragaCv.pdf';
     const link = document.createElement('a');
-    link.href = cvUrl;
-    link.download = 'SasinduDiluragaCv.pdf';
+    link.href = 'https://drive.google.com/uc?id=1ON4JNhp1G5xBiCFZ53XKJpcsIaHE6-j1&export=download'; // Direct Google Drive download link
+    link.download = 'Sasindu_Diluranga_0778231121.pdf'; // Optional: Specify the file name
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

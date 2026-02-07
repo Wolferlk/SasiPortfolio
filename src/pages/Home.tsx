@@ -107,7 +107,7 @@ const Home = () => {
                 <button
                 onClick={() => {
                   const link = document.createElement('a');
-                  link.href = 'https://drive.google.com/uc?id=1ON4JNhp1G5xBiCFZ53XKJpcsIaHE6-j1&export=download'; // Google Drive direct download link
+                  link.href = 'https://drive.google.com/uc?id=1gkeZk1eZF5aq4ITud6dPo1FlhDKvj7w0&export=download'; // https://drive.google.com/file/d/1gkeZk1eZF5aq4ITud6dPo1FlhDKvj7w0/view?usp=sharing
                   link.download = 'Sasindu_Diluranga_0778231121.pdf'; // Optional: Name the file
                   document.body.appendChild(link);
                   link.click();

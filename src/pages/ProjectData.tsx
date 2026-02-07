@@ -1,6 +1,37 @@
 const ProjectData = [
     {
-      id: 1,
+  id: 1,
+  title: 'TraveloCeylon Website',
+  description: 'A modern, responsive travel agency website designed to showcase Sri Lanka travel packages, destinations, and services.',
+  image: 'https://i.ibb.co/mrsjkdSd/image.png',
+
+  github: 'https://github.com/Wolferlk/Backend_travelo',
+  live: 'https://www.traveloceyloan.com/',
+
+  technologies: ['Next.js', 'React', 'Node.js', 'TypeScript', 'Vite'],
+
+  features: [
+    'Responsive and mobile-friendly UI for all screen sizes',
+    'Dynamic travel package listings with detailed descriptions',
+    'Destination showcase with high-quality images and content',
+    'Fast page loading using Next.js and optimized assets',
+    'SEO-friendly pages to improve search engine visibility',
+    'Contact and inquiry forms for customer communication',
+    'Modern UI/UX design tailored for travel and tourism industry'
+  ],
+
+  challenges: 
+    'Optimizing large image assets without affecting quality, implementing SEO best practices in a dynamic Next.js application, and maintaining fast performance while handling multiple pages and components.',
+
+  screenshots: [
+    'https://i.ibb.co/xtQ3ykTP/image.png',
+    'https://i.ibb.co/v4cKJ9N0/image.png',
+    'https://i.ibb.co/KjbLJ7Ms/image.png',
+    'https://i.ibb.co/qMMBrF5B/image.png'
+  ],
+}
+,{
+      id: 2,
       title: 'SD MUSIC RECORDS Site',
       description: 'A modern web Site For Sri lanakan Record Company ',
       image: 'https://i.ibb.co/gtCFB53/Whats-App-Image-2024-11-22-at-14-02-48-89c88d9c.jpg',
@@ -19,8 +50,9 @@ const ProjectData = [
         'https://i.ibb.co/tskHWGQ/FAE211-F2-C87-D-4112-8-FC3-27-D192716-D20.png',
         'https://i.ibb.co/gtCFB53/Whats-App-Image-2024-11-22-at-14-02-48-89c88d9c.jpg'
       ],
-    },{
-      "id": 2,
+    },
+    {
+      "id": 1,
       "title": "Cannibal.co Website",
       "description": "A modern e-commerce website for Cannibal.co, a branded clothing company, enabling users to browse and purchase products.",
       "image": "https://i.ibb.co/3fF40qp/image.png", // Replace with your actual project image URL

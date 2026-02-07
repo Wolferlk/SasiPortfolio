@@ -3,8 +3,7 @@ import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, ArrowRight, Download } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FeaturedProjects from '../components/FeaturedProjects';
-import AIResearchShowcase from '../components/AIResearchShowcase';
-import AIResearchShowcasePremium from '../components/AIResearchShowcasePremium';
+import AIResearchShowcase from '../components/Airesearchshowcase';
 
 
 const Home = () => {

@@ -2,10 +2,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, ArrowRight, Download } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import FeaturedProjects from '../components/FeaturedProjects';
+import AIResearchShowcase from '../components/AIResearchShowcase';
+import AIResearchShowcasePremium from '../components/AIResearchShowcasePremium';
+
 
 const Home = () => {
   return (
-    <div className="relative h-screen">
+    <div  className="relative h-screen">
       {/* Background Video */}
       <video
         autoPlay
@@ -31,7 +35,7 @@ const Home = () => {
               <div className="relative">
                 <div className="w-64 h-64 mx-auto overflow-hidden rounded-full border-4 border-purple-500/30 p-2">
                   <img
-                    src="https://i.ibb.co/71WWNWb/IMG-3536-Copy.png"
+                    src="https://i.ibb.co/NHgXgZk/Lums.jpg"
                     alt="Sasindu Diluranga"
                     className="w-full h-full object-cover rounded-full"
                   />
@@ -121,7 +125,11 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <FeaturedProjects />
+      <AIResearchShowcase />
+   
     </div>
+    
   );
 };
 

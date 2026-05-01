@@ -272,9 +272,9 @@ const Home = () => {
                 Hello, I'm
               </p>
 
-              <h1 className="text-5xl md:text-6xl xl:text-7xl font-extrabold leading-[1.05] mb-5 tracking-tight">
+              <h1 className="hero-name text-5xl md:text-6xl xl:text-7xl leading-[0.95] mb-6 text-white drop-shadow-[0_18px_35px_rgba(168,85,247,0.22)]">
                 Sasindu<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-br from-violet-400 via-fuchsia-400 to-pink-400">
+                <span className="text-transparent bg-clip-text bg-gradient-to-br from-violet-300 via-fuchsia-300 to-pink-400">
                   Diluranga
                 </span>
               </h1>

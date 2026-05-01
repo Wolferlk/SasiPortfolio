@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,6 +13,13 @@
 @layer components {
   .glass-card {
     @apply bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl p-6 hover:bg-white/20 transition-all duration-300;
+  }
+
+  .hero-name {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 900;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
   }
 }
 

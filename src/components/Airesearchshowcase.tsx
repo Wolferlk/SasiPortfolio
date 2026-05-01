@@ -13,13 +13,13 @@ import {
   ChevronRight,
   FileText,
   Microscope,
-  Layers,
-  GitBranch,
-  Activity
+  Layers
 } from 'lucide-react';
 
+type ResearchTab = 'overview' | 'technologies' | 'workflow';
+
 const AIResearchShowcase = () => {
-  const [activeTab, setActiveTab] = useState<'overview' | 'technologies' | 'workflow'>('overview');
+  const [activeTab, setActiveTab] = useState<ResearchTab>('overview');
 
   const technologies = [
     {
@@ -447,7 +447,7 @@ const AIResearchShowcase = () => {
                   ].map((tab) => (
                     <button
                       key={tab.id}
-                      onClick={() => setActiveTab(tab.id as any)}
+                      onClick={() => setActiveTab(tab.id as ResearchTab)}
                       className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
                         activeTab === tab.id
                           ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg shadow-purple-500/50'

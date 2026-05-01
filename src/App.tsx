@@ -9,6 +9,8 @@ import Contact from './pages/Contact';
 import Experience from './pages/Experience';
 import Skills from './pages/Skills';
 import ArtisticCareer from './pages/ArtisticCareer';
+import ReflectiveJournal from './pages/ReflectiveJournal';
+import CareerDevelopmentPlan from './pages/CareerDevelopmentPlan';
 
 function App() {
   return (
@@ -39,6 +41,8 @@ function App() {
             <Route path="/experience" element={<Experience />} />
             <Route path="/skills" element={<Skills />} />
             <Route path="/artistic-career" element={<ArtisticCareer />} />
+            <Route path="/reflective-journal" element={<ReflectiveJournal />} />
+            <Route path="/career-development-plan" element={<CareerDevelopmentPlan />} />
           </Routes>
         </main>
       </div>

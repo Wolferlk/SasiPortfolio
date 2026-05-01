@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Download } from 'lucide-react';
+import { Menu, X, Download, Briefcase } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 
@@ -15,6 +15,8 @@ const Navbar = () => {
     { path: '/experience', label: 'Experience' },
     { path: '/skills', label: 'Skills' },
     { path: '/artistic-career', label: 'Artistic Career' },
+    { path: '/reflective-journal', label: 'Reflective Journal' },
+    { path: '/career-development-plan', label: 'Career Plan' },
     { path: '/contact', label: 'Contact' },
   ];
 
@@ -33,18 +35,19 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           <Link 
             to="/" 
-            className="text-2xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent"
+            className="flex items-center gap-2 text-xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent"
           >
-            Portfolio
+            <Briefcase className="w-6 h-6 text-purple-400" />
+            Sasindu
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden xl:flex items-center gap-5">
             {links.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`hover:text-purple-500 transition-colors ${
+                className={`text-sm hover:text-purple-500 transition-colors ${
                   location.pathname === link.path ? 'text-purple-500' : 'text-white'
                 }`}
               >
@@ -53,7 +56,7 @@ const Navbar = () => {
             ))}
             <button
               onClick={handleDownloadCV}
-              className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 transition-all"
+              className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 transition-all text-sm font-medium"
             >
               <Download size={18} />
               Download CV
@@ -62,7 +65,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-white"
+            className="xl:hidden text-white"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -75,7 +78,7 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden py-4"
+            className="xl:hidden py-4"
           >
             {links.map((link) => (
               <Link

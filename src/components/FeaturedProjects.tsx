@@ -4,19 +4,15 @@ import { Github, ExternalLink, ArrowRight, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ProjectData from '../pages/ProjectData';
 
-const FeaturedProjects = () => {
-  const [featuredProjects, setFeaturedProjects] = useState<typeof ProjectData>([]);
+const getRandomProjects = () => {
+  const shuffled = [...ProjectData].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, 2);
+};
 
-  // Function to get 2 random projects
-  const getRandomProjects = () => {
-    const shuffled = [...ProjectData].sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, 2);
-  };
+const FeaturedProjects = () => {
+  const [featuredProjects, setFeaturedProjects] = useState<typeof ProjectData>(() => getRandomProjects());
 
   useEffect(() => {
-    // Set initial random projects
-    setFeaturedProjects(getRandomProjects());
-
     // Change projects every 30 seconds
     const interval = setInterval(() => {
       setFeaturedProjects(getRandomProjects());

@@ -9,8 +9,15 @@ const Experience = () => {
       title: 'Team LEAD - Software Engineer [Intern]',
       company: 'Gamage Recruiters',
       period: '2025 march - 2025 September',
-      description: 'Composed and produced music tracks, collaborating with artists to create engaging audio experiences.',
-      technologies: [ 'FL Studio','Pro Tools'],
+      description: 'Led a team of 15 intern software engineers to design and develop web and mobile applications. Planned and managed project timelines, assigned tasks, and ensured timely delivery of multiple projects. Successfully delivered 4 major projects within 6 months using MERN stack and React Native. Collaborated with team members to solve technical challenges and improve overall system performance. ',
+      technologies: ['MERN Stack (MongoDB, Express, React, Node.js)', 'React Native', 'SQL', 'Tailwind CSS', 'TypeScript', 'JavaScript', 'REST APIs', 'Git'],
+    },
+    {
+      title: 'Freelance Software Engineer',
+      company: 'Self-Employed',
+      period: '2022 - Present',
+      description: 'Developed responsive and high-performance websites for various clients including clothing brands, studios, and educational institutes. Worked with modern technologies such as React, TypeScript, Tailwind CSS, Node.js, Express, and MongoDB. Focused on user-friendly UI/UX design and optimized application performance.',
+      technologies: ['MERN Stack (MongoDB, Express, React, Node.js)', 'React Native', 'SQL', 'Tailwind CSS', 'TypeScript', 'JavaScript', 'REST APIs', 'Git'],
     },{
       title: 'Music Composer & Producer',
       company: 'Wolfer SD MUSIC Records',

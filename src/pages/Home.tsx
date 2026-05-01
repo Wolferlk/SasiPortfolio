@@ -151,7 +151,7 @@ const Home = () => {
   const techStack = ['React', 'Node.js', 'MongoDB', 'Express', 'Python', 'TensorFlow', 'Unity', 'Figma'];
 
   return (
-    <div className="relative bg-[#080810] text-white overflow-x-hidden">
+    <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen bg-[#080810] text-white overflow-x-hidden">
 
       {/* ── Global font import ── */}
       <style>{`

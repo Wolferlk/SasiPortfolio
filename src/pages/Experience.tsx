@@ -6,6 +6,12 @@ const Experience = () => {
   const experiences = [
    
     {
+      title: 'Team LEAD - Software Engineer [Intern]',
+      company: 'Gamage Recruiters',
+      period: '2025 march - 2025 September',
+      description: 'Composed and produced music tracks, collaborating with artists to create engaging audio experiences.',
+      technologies: [ 'FL Studio','Pro Tools'],
+    },{
       title: 'Music Composer & Producer',
       company: 'Wolfer SD MUSIC Records',
       period: '2019 - Present',

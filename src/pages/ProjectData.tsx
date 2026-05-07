@@ -29,9 +29,99 @@ const ProjectData = [
     'https://i.ibb.co/KjbLJ7Ms/image.png',
     'https://i.ibb.co/qMMBrF5B/image.png'
   ],
+},{
+  id: 2,
+  title: 'Restaurant POS System',
+  description: 'A powerful Windows-based Restaurant POS system designed to manage orders, billing, inventory, kitchen operations, and customer management efficiently.',
+
+  image: 'https://i.ibb.co/qMbvG9Xm/1.png',
+
+  github: 'https://github.com/Wolferlk',
+  live: '',
+
+technologies: ['React', 'MongoDB', 'Express.js', 'Node.js', 'Tailwind CSS', 'MERN Stack'],
+  features: [
+    'Modern and user-friendly POS dashboard for restaurant management',
+    'Order management system with real-time table handling',
+    'Billing and invoice generation with fast checkout process',
+    'Inventory and stock management for restaurant items',
+    'Employee and customer management functionalities',
+    'Sales reporting and analytics dashboard',
+    'Kitchen order management integration',
+    'Secure database management using SQL Server',
+    'Responsive desktop UI optimized for restaurant workflow',
+    'Fast and efficient performance for daily restaurant operations'
+  ],
+
+  challenges:
+    'Managing real-time order processing, optimizing database performance for large transaction volumes, designing an intuitive POS workflow for restaurant staff, and ensuring smooth synchronization between billing, inventory, and kitchen operations.',
+
+  screenshots: [
+    'https://i.ibb.co/qMbvG9Xm/1.png',
+    'https://i.ibb.co/DZzd1XD/2.png',
+    'https://i.ibb.co/hR0tnbrv/3.png',
+    'https://i.ibb.co/W4zY3fKD/4.png',
+    'https://i.ibb.co/mCv4HQjg/5.png',
+    'https://i.ibb.co/V0gWhcgj/6.png',
+    'https://i.ibb.co/DPpBsrHg/7.png',
+    'https://i.ibb.co/k2NzCxcf/8.png',
+    'https://i.ibb.co/nMR3Jnzk/9.png',
+    'https://i.ibb.co/3583qnTg/10.png',
+    'https://i.ibb.co/SXTztvmr/11.png',
+    'https://i.ibb.co/8nj8YwsW/12.png',
+    'https://i.ibb.co/Y47R3vC6/13.png',
+    'https://i.ibb.co/LzWw2P1v/14.png',
+    'https://i.ibb.co/qwf1sQS/15.png'
+  ],
+},{
+  id: 3,
+  title: 'Gamage Recruiters Recruitment Platform',
+  description: 'A modern recruitment management platform developed for Gamage Recruiters to streamline job postings, candidate applications, employer management, and recruitment workflows.',
+
+  image: 'https://i.ibb.co/wGxFGTb/image.png',
+
+  github: 'https://github.com/Wolferlk',
+  live: 'https://gamagerecruiters.lk/',
+
+  technologies: [
+    'React',
+    'Node.js',
+    'Express.js',
+    'MongoDB',
+    'MySQL',
+    'Tailwind CSS',
+    'MERN Stack'
+  ],
+
+  features: [
+    'Modern responsive recruitment company website',
+    'Job posting and application management system',
+    'Admin dashboard for managing candidates and employers',
+    'Role-based authentication and secure login system',
+    'Dynamic candidate profile and CV management',
+    'Real-time application tracking and status updates',
+    'Company management and recruiter collaboration features',
+    'SEO-friendly pages and optimized performance',
+    'Advanced database management using MongoDB and MySQL',
+    'Fully responsive UI for desktop, tablet, and mobile devices'
+  ],
+
+  challenges:
+    'Managing large-scale recruitment data efficiently, implementing secure authentication and role management, coordinating development tasks across an 11-member team, and optimizing system performance for handling multiple users and job applications simultaneously.',
+
+  role:
+    'Worked as the Team Lead managing an 11-member development team, handling project planning, task coordination, frontend and backend development, and ensuring successful project delivery during the internship.',
+
+  screenshots: [
+    'https://i.ibb.co/wGxFGTb/image.png',
+    'https://i.ibb.co/60cfY6Tz/image.png',
+    'https://i.ibb.co/m530LydG/image.png',
+    'https://i.ibb.co/Qvp8NXFk/image.png',
+    'https://i.ibb.co/R4dLzCLB/image.png'
+  ],
 }
 ,{
-      id: 2,
+      id: 4,
       title: 'SD MUSIC RECORDS Site',
       description: 'A modern web Site For Sri lanakan Record Company ',
       image: 'https://i.ibb.co/gtCFB53/Whats-App-Image-2024-11-22-at-14-02-48-89c88d9c.jpg',
@@ -52,7 +142,7 @@ const ProjectData = [
       ],
     },
     {
-      "id": 1,
+      "id": 5,
       "title": "Cannibal.co Website",
       "description": "A modern e-commerce website for Cannibal.co, a branded clothing company, enabling users to browse and purchase products.",
       "image": "https://i.ibb.co/3fF40qp/image.png", // Replace with your actual project image URL
@@ -74,7 +164,7 @@ const ProjectData = [
       ]
     },
     {
-      id: 3,
+      id: 6,
       title: 'Portfolio Website',
       description: 'A personal portfolio showcasing projects, skills, and experience.',
       image: 'https://i.ibb.co/djjf3s1/244-FEFE5-7-A85-4-DE0-B561-BA25470-A0-CDF.png',
@@ -94,7 +184,7 @@ const ProjectData = [
         'https://i.ibb.co/t86bVmF/E1562-A32-75-AD-49-AC-8755-451-FF47-E12-BC.png'
       ],
     },{
-      "id": 4,
+      "id": 7,
       "title": "Royal Academy Education Institute Management System",
       "description": "A comprehensive web-based application designed to manage educational activities efficiently at the Royal Academy Education Institute. The system encompasses functionalities such as user management, financial management, enrollment and attendance tracking, class and timetable management, lesson material distribution, salary management, and Q&A/feedback handling.",
       "image": "https://github.com/Eshmika/Royal_institute/blob/db779ac34ecfeebafa2ce0b09fb9113f07302dfe/Documentation/screenshot1.png?raw=true",
@@ -118,7 +208,7 @@ const ProjectData = [
       ]
     }
     ,{
-      "id": 5,
+      "id": 8,
       "title": "Vehicle Spare Parts Management System",
       "description": "A web-based system designed to manage the inventory, sales, and operations of a vehicle spare parts business. Built using HTML, CSS, JavaScript, PHP, and SQL, the platform allows users to manage items, generate reports, and interact through a user-friendly interface.",
       "image": "https://github.com/Wolferlk/Vehicle_spare_parts_management_System-SLIIT-PROJECT/blob/main/screenshots/Index.png?raw=true", 
@@ -145,7 +235,7 @@ const ProjectData = [
       ]
     }
 ,    {
-  "id": 6,
+  "id": 9,
   "title": "The Notes App",
   "description": "A simple and intuitive Android application for creating, editing, and managing notes, developed using Kotlin in Android Studio.",
   "image": "https://private-user-images.githubusercontent.com/127308777/329778317-ea753bf9-74cb-4a43-bb46-f6abfd9b738c.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzYzMTc5OTQsIm5iZiI6MTczNjMxNzY5NCwicGF0aCI6Ii8xMjczMDg3NzcvMzI5Nzc4MzE3LWVhNzUzYmY5LTc0Y2ItNGE0My1iYjQ2LWY2YWJmZDliNzM4Yy5qcGc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMTA4JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDEwOFQwNjI4MTRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1jYzU5Yjc4M2NmNzU2YTI3YjZhZTRhMjQwMDUxNmZkZDIwZWYyZjhiMTdjY2FhYjE5YjNmZWI4MjczYjU5YWU2JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.ujlDj9w1KWSI5tfvfsh98F_K5y5J435ggbM9QlT2M-s",
@@ -167,7 +257,7 @@ const ProjectData = [
   ]
 }
 ,{
-  "id": 7,
+  "id": 10,
   "title": "Colombo - Android Game",
   "description": "An engaging Android game developed using Kotlin in Android Studio, featuring interactive gameplay and intuitive design.",
   "image": "https://github.com/Wolferlk/Colombo/blob/main/snapshots/Screenshot_20240428-233001.png?raw=true",
@@ -190,7 +280,7 @@ const ProjectData = [
 }
 ,
     {
-      id: 9,
+      id: 11,
       title: 'Gym Management System',
       description: 'A comprehensive web application for managing gym operations, user memberships, and payment processing.',
       image: 'https://i.ibb.co/27Ccbky/D7296421-2-D94-4019-827-E-3569-B82-B1167.png',

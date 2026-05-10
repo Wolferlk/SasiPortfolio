@@ -127,12 +127,12 @@ const AIResearchShowcase = () => {
   };
 
   return (
-    <section className="py-24 relative overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+    <section className="relative overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 py-12 sm:py-24">
       {/* Animated Background */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-0 left-1/4 h-64 w-64 rounded-full bg-blue-500/10 blur-3xl sm:h-96 sm:w-96 animate-pulse" />
+        <div className="absolute bottom-0 right-1/4 h-64 w-64 rounded-full bg-purple-500/10 blur-3xl sm:h-96 sm:w-96 animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/2 left-1/2 h-64 w-64 rounded-full bg-pink-500/10 blur-3xl sm:h-96 sm:w-96 animate-pulse" style={{ animationDelay: '2s' }} />
       </div>
 
       {/* Grid pattern overlay */}
@@ -140,7 +140,7 @@ const AIResearchShowcase = () => {
 
       {/* Floating Neural Network Visualization - Top Right */}
       <motion.div
-        className="absolute top-20 right-10 w-64 h-64 opacity-20"
+        className="absolute right-10 top-20 hidden h-64 w-64 opacity-20 sm:block"
         animate={{
           y: [0, -20, 0],
           rotate: [0, 5, 0],
@@ -192,7 +192,7 @@ const AIResearchShowcase = () => {
 
       {/* CNN Architecture Visualization - Left Side */}
       <motion.div
-        className="absolute top-40 left-10 w-48 h-48 opacity-15"
+        className="absolute left-10 top-40 hidden h-48 w-48 opacity-15 sm:block"
         animate={{
           y: [0, 15, 0],
           x: [0, 10, 0],
@@ -238,7 +238,7 @@ const AIResearchShowcase = () => {
 
       {/* Data Flow Diagram - Bottom Right */}
       <motion.div
-        className="absolute bottom-20 right-20 w-56 h-56 opacity-10"
+        className="absolute bottom-20 right-20 hidden h-56 w-56 opacity-10 sm:block"
         animate={{
           rotate: [0, 360],
         }}
@@ -282,7 +282,7 @@ const AIResearchShowcase = () => {
         </svg>
       </motion.div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -290,13 +290,13 @@ const AIResearchShowcase = () => {
           variants={containerVariants}
         >
           {/* Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16 relative">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 mb-6">
+          <motion.div variants={itemVariants} className="relative mb-10 text-center sm:mb-16">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-gradient-to-r from-blue-500/10 to-purple-500/10 px-4 py-2 sm:mb-6">
               <Microscope className="w-4 h-4 text-blue-400" />
-              <span className="text-sm font-medium text-blue-300">University Research Project</span>
+              <span className="text-xs font-medium text-blue-300 sm:text-sm">University Research Project</span>
             </div>
             
-            <h2 className="text-4xl md:text-6xl font-bold mb-6">
+            <h2 className="mb-5 text-3xl font-bold leading-tight md:text-6xl sm:mb-6">
               <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                 AI & Machine Learning
               </span>
@@ -304,7 +304,7 @@ const AIResearchShowcase = () => {
               <span className="text-gray-200">Research Specialist</span>
             </h2>
             
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="mx-auto max-w-3xl text-sm leading-relaxed text-gray-300 sm:text-xl">
               Pioneering automated system error diagnosis using Deep Learning, CNN, and NLP
             </p>
 
@@ -335,9 +335,9 @@ const AIResearchShowcase = () => {
           </motion.div>
 
           {/* Main Research Card */}
-          <motion.div variants={itemVariants} className="mb-12 relative">
+          <motion.div variants={itemVariants} className="relative mb-10 sm:mb-12">
             {/* Background Research Image */}
-            <div className="absolute inset-0 rounded-3xl overflow-hidden opacity-5">
+            <div className="absolute inset-0 overflow-hidden rounded-3xl opacity-5">
               <svg viewBox="0 0 800 600" className="w-full h-full">
                 {/* Abstract circuit board pattern */}
                 <path d="M 100 100 L 200 100 L 200 200 L 300 200" stroke="#3b82f6" strokeWidth="4" fill="none" />
@@ -355,18 +355,18 @@ const AIResearchShowcase = () => {
 
             <div className="glass-card relative overflow-hidden">
               {/* Decorative corner accent */}
-              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-purple-500/20 to-transparent rounded-bl-full" />
+              <div className="absolute right-0 top-0 h-32 w-32 rounded-bl-full bg-gradient-to-br from-purple-500/20 to-transparent sm:h-40 sm:w-40" />
               
-              <div className="relative z-10 p-8 md:p-12">
-                <div className="flex items-start gap-4 mb-8">
-                  <div className="p-3 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-blue-500/30">
-                    <Brain className="w-8 h-8 text-blue-400" />
+              <div className="relative z-10 p-4 sm:p-8 md:p-12">
+                <div className="mb-6 flex flex-col gap-4 sm:mb-8 sm:flex-row sm:items-start">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/20 to-purple-500/20 sm:h-auto sm:w-auto sm:p-3">
+                    <Brain className="h-6 w-6 text-blue-400 sm:h-8 sm:w-8" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-2xl md:text-3xl font-bold mb-3 text-gray-100">
+                    <h3 className="mb-3 text-xl font-bold leading-snug text-gray-100 md:text-3xl">
                       AI-Powered Automated System Error Diagnosis & Fixing
                     </h3>
-                    <p className="text-gray-300 text-lg leading-relaxed">
+                    <p className="text-sm leading-relaxed text-gray-300 sm:text-lg">
                       An intelligent system that combines <span className="text-blue-400 font-semibold">Deep Learning</span>, 
                       <span className="text-purple-400 font-semibold"> Convolutional Neural Networks (CNN)</span>, and 
                       <span className="text-pink-400 font-semibold"> Natural Language Processing (NLP)</span> to automatically 
@@ -376,8 +376,8 @@ const AIResearchShowcase = () => {
                 </div>
 
                 {/* Visual System Architecture Diagram */}
-                <div className="mb-8 p-6 rounded-xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-slate-700/50">
-                  <div className="flex items-center justify-between flex-wrap gap-4">
+                <div className="mb-6 rounded-xl border border-slate-700/50 bg-gradient-to-br from-slate-800/50 to-slate-900/50 p-4 sm:mb-8 sm:p-6">
+                  <div className="grid grid-cols-3 gap-4 sm:flex sm:flex-wrap sm:items-center sm:justify-between">
                     <motion.div 
                       className="flex flex-col items-center gap-2"
                       whileHover={{ scale: 1.05 }}
@@ -388,7 +388,7 @@ const AIResearchShowcase = () => {
                       <span className="text-xs text-gray-400 font-medium">Screenshot</span>
                     </motion.div>
                     
-                    <ChevronRight className="w-5 h-5 text-gray-600" />
+                    <ChevronRight className="hidden w-5 h-5 text-gray-600 sm:block" />
                     
                     <motion.div 
                       className="flex flex-col items-center gap-2"
@@ -400,7 +400,7 @@ const AIResearchShowcase = () => {
                       <span className="text-xs text-gray-400 font-medium">OCR</span>
                     </motion.div>
                     
-                    <ChevronRight className="w-5 h-5 text-gray-600" />
+                    <ChevronRight className="hidden w-5 h-5 text-gray-600 sm:block" />
                     
                     <motion.div 
                       className="flex flex-col items-center gap-2"
@@ -412,7 +412,7 @@ const AIResearchShowcase = () => {
                       <span className="text-xs text-gray-400 font-medium">CNN</span>
                     </motion.div>
                     
-                    <ChevronRight className="w-5 h-5 text-gray-600" />
+                    <ChevronRight className="hidden w-5 h-5 text-gray-600 sm:block" />
                     
                     <motion.div 
                       className="flex flex-col items-center gap-2"
@@ -424,7 +424,7 @@ const AIResearchShowcase = () => {
                       <span className="text-xs text-gray-400 font-medium">NLP</span>
                     </motion.div>
                     
-                    <ChevronRight className="w-5 h-5 text-gray-600" />
+                    <ChevronRight className="hidden w-5 h-5 text-gray-600 sm:block" />
                     
                     <motion.div 
                       className="flex flex-col items-center gap-2"
@@ -439,7 +439,7 @@ const AIResearchShowcase = () => {
                 </div>
 
                 {/* Tab Navigation */}
-                <div className="flex gap-2 mb-8 flex-wrap">
+                <div className="mb-6 grid grid-cols-1 gap-2 sm:mb-8 sm:flex sm:flex-wrap">
                   {[
                     { id: 'overview', label: 'Overview', icon: <Eye className="w-4 h-4" /> },
                     { id: 'technologies', label: 'Technologies', icon: <Cpu className="w-4 h-4" /> },
@@ -448,7 +448,7 @@ const AIResearchShowcase = () => {
                     <button
                       key={tab.id}
                       onClick={() => setActiveTab(tab.id as ResearchTab)}
-                      className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+                      className={`flex min-h-11 items-center justify-center gap-2 rounded-lg px-4 py-3 text-sm font-medium transition-all duration-300 sm:px-6 ${
                         activeTab === tab.id
                           ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg shadow-purple-500/50'
                           : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-gray-300'
@@ -565,7 +565,7 @@ const AIResearchShowcase = () => {
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ delay: index * 0.1 }}
                             whileHover={{ y: -5 }}
-                            className="group relative p-6 rounded-xl bg-white/5 border border-white/10 hover:border-white/20 transition-all duration-300"
+                            className="group relative rounded-xl border border-white/10 bg-white/5 p-4 transition-all duration-300 hover:border-white/20 sm:p-6"
                           >
                             <div className={`absolute inset-0 bg-gradient-to-br ${tech.color} opacity-0 group-hover:opacity-10 rounded-xl transition-opacity`} />
                             
@@ -603,7 +603,7 @@ const AIResearchShowcase = () => {
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: index * 0.1 }}
-                            className="flex items-start gap-4 p-6 rounded-xl bg-white/5 border border-white/10 hover:border-purple-500/30 hover:bg-white/10 transition-all duration-300 group"
+                            className="group flex items-start gap-4 rounded-xl border border-white/10 bg-white/5 p-4 transition-all duration-300 hover:border-purple-500/30 hover:bg-white/10 sm:p-6"
                           >
                             <div className="flex-shrink-0">
                               <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center font-bold text-white shadow-lg shadow-purple-500/50">
@@ -621,7 +621,7 @@ const AIResearchShowcase = () => {
                               <p className="text-gray-400">{item.description}</p>
                             </div>
                             
-                            <ChevronRight className="w-5 h-5 text-gray-600 group-hover:text-purple-400 transition-colors" />
+                            <ChevronRight className="hidden w-5 h-5 text-gray-600 transition-colors group-hover:text-purple-400 sm:block" />
                           </motion.div>
                         ))}
                       </div>
@@ -634,7 +634,7 @@ const AIResearchShowcase = () => {
 
           {/* Key Highlights with Background Images */}
           <motion.div variants={itemVariants}>
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid gap-5 md:grid-cols-3 md:gap-6">
               <div className="p-6 rounded-xl bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-transparent border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 relative overflow-hidden group">
                 {/* Background illustration */}
                 <div className="absolute bottom-0 right-0 w-32 h-32 opacity-10 group-hover:opacity-20 transition-opacity">
@@ -701,8 +701,8 @@ const AIResearchShowcase = () => {
           </motion.div>
 
           {/* CTA Section */}
-          <motion.div variants={itemVariants} className="mt-12 text-center">
-            <div className="inline-flex flex-col items-center gap-4 p-8 rounded-2xl bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 border border-purple-500/20 relative overflow-hidden">
+          <motion.div variants={itemVariants} className="mt-10 text-center sm:mt-12">
+            <div className="relative inline-flex flex-col items-center gap-4 overflow-hidden rounded-2xl border border-purple-500/20 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 p-4 sm:p-8">
               {/* Background pattern */}
               <div className="absolute inset-0 opacity-5">
                 <svg viewBox="0 0 400 200" className="w-full h-full">
@@ -715,11 +715,11 @@ const AIResearchShowcase = () => {
                 </svg>
               </div>
               
-              <p className="text-gray-300 max-w-2xl relative z-10">
+              <p className="relative z-10 max-w-2xl text-sm leading-relaxed text-gray-300 sm:text-base">
                 This research demonstrates the ability to combine cutting-edge AI technologies 
                 to build intelligent, automated systems for real-world applications
               </p>
-              <button className="group flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white font-semibold hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 relative z-10">
+              <button className="group relative z-10 flex min-h-11 items-center gap-2 rounded-lg bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/50 sm:rounded-full sm:px-8 sm:py-4 sm:text-base">
                 <span>Explore More Research</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>

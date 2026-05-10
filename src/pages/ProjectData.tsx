@@ -120,7 +120,95 @@ technologies: ['React', 'MongoDB', 'Express.js', 'Node.js', 'Tailwind CSS', 'MER
     'https://i.ibb.co/R4dLzCLB/image.png'
   ],
 }
-,{
+,,{
+  id: 2,
+  title: 'Restaurant POS System',
+  description: 'A powerful Windows-based Restaurant POS system designed to manage orders, billing, inventory, kitchen operations, and customer management efficiently.',
+
+  image: 'https://i.ibb.co/qMbvG9Xm/1.png',
+
+  github: 'https://github.com/Wolferlk',
+  live: '',
+
+technologies: ['React', 'MongoDB', 'Express.js', 'Node.js', 'Tailwind CSS', 'MERN Stack'],
+  features: [
+    'Modern and user-friendly POS dashboard for restaurant management',
+    'Order management system with real-time table handling',
+    'Billing and invoice generation with fast checkout process',
+    'Inventory and stock management for restaurant items',
+    'Employee and customer management functionalities',
+    'Sales reporting and analytics dashboard',
+    'Kitchen order management integration',
+    'Secure database management using SQL Server',
+    'Responsive desktop UI optimized for restaurant workflow',
+    'Fast and efficient performance for daily restaurant operations'
+  ],
+
+  challenges:
+    'Managing real-time order processing, optimizing database performance for large transaction volumes, designing an intuitive POS workflow for restaurant staff, and ensuring smooth synchronization between billing, inventory, and kitchen operations.',
+
+  screenshots: [
+    'https://i.ibb.co/qMbvG9Xm/1.png',
+    'https://i.ibb.co/DZzd1XD/2.png',
+    'https://i.ibb.co/hR0tnbrv/3.png',
+    'https://i.ibb.co/W4zY3fKD/4.png',
+    'https://i.ibb.co/mCv4HQjg/5.png',
+    'https://i.ibb.co/V0gWhcgj/6.png',
+    'https://i.ibb.co/DPpBsrHg/7.png',
+    'https://i.ibb.co/k2NzCxcf/8.png',
+    'https://i.ibb.co/nMR3Jnzk/9.png',
+    'https://i.ibb.co/3583qnTg/10.png',
+    'https://i.ibb.co/SXTztvmr/11.png',
+    'https://i.ibb.co/8nj8YwsW/12.png',
+    'https://i.ibb.co/Y47R3vC6/13.png',
+    'https://i.ibb.co/LzWw2P1v/14.png',
+    'https://i.ibb.co/qwf1sQS/15.png'
+  ],
+},,{
+  id: 2,
+  title: 'Restaurant POS System',
+  description: 'A powerful Windows-based Restaurant POS system designed to manage orders, billing, inventory, kitchen operations, and customer management efficiently.',
+
+  image: 'https://i.ibb.co/qMbvG9Xm/1.png',
+
+  github: 'https://github.com/Wolferlk',
+  live: '',
+
+technologies: ['React', 'MongoDB', 'Express.js', 'Node.js', 'Tailwind CSS', 'MERN Stack'],
+  features: [
+    'Modern and user-friendly POS dashboard for restaurant management',
+    'Order management system with real-time table handling',
+    'Billing and invoice generation with fast checkout process',
+    'Inventory and stock management for restaurant items',
+    'Employee and customer management functionalities',
+    'Sales reporting and analytics dashboard',
+    'Kitchen order management integration',
+    'Secure database management using SQL Server',
+    'Responsive desktop UI optimized for restaurant workflow',
+    'Fast and efficient performance for daily restaurant operations'
+  ],
+
+  challenges:
+    'Managing real-time order processing, optimizing database performance for large transaction volumes, designing an intuitive POS workflow for restaurant staff, and ensuring smooth synchronization between billing, inventory, and kitchen operations.',
+
+  screenshots: [
+    'https://i.ibb.co/qMbvG9Xm/1.png',
+    'https://i.ibb.co/DZzd1XD/2.png',
+    'https://i.ibb.co/hR0tnbrv/3.png',
+    'https://i.ibb.co/W4zY3fKD/4.png',
+    'https://i.ibb.co/mCv4HQjg/5.png',
+    'https://i.ibb.co/V0gWhcgj/6.png',
+    'https://i.ibb.co/DPpBsrHg/7.png',
+    'https://i.ibb.co/k2NzCxcf/8.png',
+    'https://i.ibb.co/nMR3Jnzk/9.png',
+    'https://i.ibb.co/3583qnTg/10.png',
+    'https://i.ibb.co/SXTztvmr/11.png',
+    'https://i.ibb.co/8nj8YwsW/12.png',
+    'https://i.ibb.co/Y47R3vC6/13.png',
+    'https://i.ibb.co/LzWw2P1v/14.png',
+    'https://i.ibb.co/qwf1sQS/15.png'
+  ],
+},{
       id: 4,
       title: 'SD MUSIC RECORDS Site',
       description: 'A modern web Site For Sri lanakan Record Company ',
@@ -162,9 +250,43 @@ technologies: ['React', 'MongoDB', 'Express.js', 'Node.js', 'Tailwind CSS', 'MER
         "https://i.ibb.co/k6k22hw/AC2-A2896-4-A46-456-D-A333-9-AA0745-C190-A.png",
         "https://i.ibb.co/CJM11bK/B46-FF92-A-89-E3-4608-9-A1-D-A3356-B07-BC46.png" 
       ]
-    },
+    },{
+  "id": 6 ,
+  "title": "StayManage - Mini Hotel Management System",
+  "description": "A full-stack hotel management system developed to streamline hotel booking and management operations. The platform allows users to browse hotels, filter accommodations, manage bookings, and provides administrators with tools to manage hotel listings efficiently.",
+  "image": "https://i.ibb.co/Fbkp2JsM/image.png",
+  "github": "https://github.com/Wolferlk/StayManage-Mini_Hotel_Management_System_SASINDU_-DILURANGA.git",
+  "live": "https://staymanage.vercel.app/",
+  "technologies": [
+    "React.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "Laravel",
+    "MySQL",
+    "REST API"
+  ],
+  "features": [
+    "Responsive hotel booking platform with modern UI/UX",
+    "Browse hotels with grid and compact view options",
+    "Advanced hotel filtering system by location, price, amenities, and ratings",
+    "Hotel detail pages with complete accommodation information",
+    "Add, edit, update, and delete hotel listings",
+    "Image upload and preview functionality for hotels",
+    "Search functionality for finding hotels quickly",
+    "RESTful API integration between frontend and backend",
+    "Mobile-friendly design optimized for all screen sizes",
+    "Dynamic admin management features for hotel operations"
+  ],
+  "challenges": "Implemented complex filtering and search functionalities while maintaining fast performance. Integrated Laravel backend APIs with the React frontend and optimized image handling and state management for smooth user experience across devices.",
+  "screenshots": [
+    "https://i.ibb.co/Fbkp2JsM/image.png",
+    "https://i.ibb.co/rq757qf/image.png",
+    "https://i.ibb.co/TD9MJT87/image.png",
+    "https://i.ibb.co/Kj9DL3YT/image.png"
+  ]
+},
     {
-      id: 6,
+      id: 7 ,
       title: 'Portfolio Website',
       description: 'A personal portfolio showcasing projects, skills, and experience.',
       image: 'https://i.ibb.co/djjf3s1/244-FEFE5-7-A85-4-DE0-B561-BA25470-A0-CDF.png',
@@ -184,7 +306,7 @@ technologies: ['React', 'MongoDB', 'Express.js', 'Node.js', 'Tailwind CSS', 'MER
         'https://i.ibb.co/t86bVmF/E1562-A32-75-AD-49-AC-8755-451-FF47-E12-BC.png'
       ],
     },{
-      "id": 7,
+      "id": 8 ,
       "title": "Royal Academy Education Institute Management System",
       "description": "A comprehensive web-based application designed to manage educational activities efficiently at the Royal Academy Education Institute. The system encompasses functionalities such as user management, financial management, enrollment and attendance tracking, class and timetable management, lesson material distribution, salary management, and Q&A/feedback handling.",
       "image": "https://github.com/Eshmika/Royal_institute/blob/db779ac34ecfeebafa2ce0b09fb9113f07302dfe/Documentation/screenshot1.png?raw=true",
@@ -208,7 +330,7 @@ technologies: ['React', 'MongoDB', 'Express.js', 'Node.js', 'Tailwind CSS', 'MER
       ]
     }
     ,{
-      "id": 8,
+      "id": 9  ,
       "title": "Vehicle Spare Parts Management System",
       "description": "A web-based system designed to manage the inventory, sales, and operations of a vehicle spare parts business. Built using HTML, CSS, JavaScript, PHP, and SQL, the platform allows users to manage items, generate reports, and interact through a user-friendly interface.",
       "image": "https://github.com/Wolferlk/Vehicle_spare_parts_management_System-SLIIT-PROJECT/blob/main/screenshots/Index.png?raw=true", 
@@ -235,7 +357,7 @@ technologies: ['React', 'MongoDB', 'Express.js', 'Node.js', 'Tailwind CSS', 'MER
       ]
     }
 ,    {
-  "id": 9,
+  "id": 10 ,
   "title": "The Notes App",
   "description": "A simple and intuitive Android application for creating, editing, and managing notes, developed using Kotlin in Android Studio.",
   "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6aNK4uGBhCkDH3L3iD1m90_tKiH9atMIdBA&s",
@@ -257,7 +379,7 @@ technologies: ['React', 'MongoDB', 'Express.js', 'Node.js', 'Tailwind CSS', 'MER
   ]
 }
 ,{
-  "id": 10,
+  "id": 11 ,
   "title": "Colombo - Android Game",
   "description": "An engaging Android game developed using Kotlin in Android Studio, featuring interactive gameplay and intuitive design.",
   "image": "https://github.com/Wolferlk/Colombo/blob/main/snapshots/Screenshot_20240428-233001.png?raw=true",
@@ -280,7 +402,7 @@ technologies: ['React', 'MongoDB', 'Express.js', 'Node.js', 'Tailwind CSS', 'MER
 }
 ,
     {
-      id: 11,
+      id: 12 ,
       title: 'Gym Management System',
       description: 'A comprehensive web application for managing gym operations, user memberships, and payment processing.',
       image: 'https://i.ibb.co/27Ccbky/D7296421-2-D94-4019-827-E-3569-B82-B1167.png',

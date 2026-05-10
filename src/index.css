@@ -12,7 +12,7 @@
 
 @layer components {
   .glass-card {
-    @apply bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl p-6 hover:bg-white/20 transition-all duration-300;
+    @apply bg-white/10 backdrop-blur-lg border border-white/20 rounded-lg p-4 sm:p-6 hover:bg-white/20 transition-all duration-300;
   }
 
   .hero-name {

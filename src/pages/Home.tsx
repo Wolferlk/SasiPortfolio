@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import { Github, Linkedin, Mail, ArrowRight, Download, Code2, Gamepad2, Music2, Sparkles, ExternalLink, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
@@ -30,6 +30,7 @@ const useCounter = (end, duration = 2000) => {
 ───────────────────────────────────────────── */
 const ParticleField = () => {
   const canvasRef = useRef(null);
+  const shouldReduceMotion = useReducedMotion();
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
@@ -38,12 +39,14 @@ const ParticleField = () => {
     resize();
     window.addEventListener('resize', resize);
 
-    const particles = Array.from({ length: 60 }, () => ({
+    const particleCount = window.innerWidth < 640 ? 28 : 60;
+    const connectionDistance = window.innerWidth < 640 ? 80 : 120;
+    const particles = Array.from({ length: particleCount }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
       r: Math.random() * 1.5 + 0.3,
-      vx: (Math.random() - 0.5) * 0.3,
-      vy: (Math.random() - 0.5) * 0.3,
+      vx: shouldReduceMotion ? 0 : (Math.random() - 0.5) * 0.3,
+      vy: shouldReduceMotion ? 0 : (Math.random() - 0.5) * 0.3,
       alpha: Math.random() * 0.5 + 0.1,
     }));
 
@@ -66,11 +69,11 @@ const ParticleField = () => {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120) {
+          if (dist < connectionDistance) {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(139,92,246,${0.08 * (1 - dist / 120)})`;
+            ctx.strokeStyle = `rgba(139,92,246,${0.08 * (1 - dist / connectionDistance)})`;
             ctx.lineWidth = 0.6;
             ctx.stroke();
           }
@@ -80,7 +83,7 @@ const ParticleField = () => {
     };
     draw();
     return () => { cancelAnimationFrame(animId); window.removeEventListener('resize', resize); };
-  }, []);
+  }, [shouldReduceMotion]);
   return <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none" />;
 };
 
@@ -135,9 +138,10 @@ const StatCard = ({ value, label, suffix = '+' }) => {
    Main Home component
 ───────────────────────────────────────────── */
 const Home = () => {
+  const shouldReduceMotion = useReducedMotion();
   const { scrollY } = useScroll();
-  const heroOpacity = useTransform(scrollY, [0, 500], [1, 0]);
-  const heroY = useTransform(scrollY, [0, 500], [0, -80]);
+  const heroOpacity = useTransform(scrollY, [0, 500], [1, shouldReduceMotion ? 1 : 0]);
+  const heroY = useTransform(scrollY, [0, 500], [0, shouldReduceMotion ? 0 : -80]);
 
   const highlights = [
     { label: 'MERN Stack', icon: <Code2 className="w-4 h-4" />, color: 'from-violet-500/20 to-violet-500/5', border: 'border-violet-500/30' },
@@ -230,6 +234,19 @@ const Home = () => {
           height: 1px;
           background: linear-gradient(90deg, transparent, rgba(139,92,246,0.4), transparent);
         }
+        @media (max-width: 639px) {
+          .avatar-float,
+          .scroll-indicator {
+            animation-duration: 8s;
+          }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .avatar-float,
+          .scroll-indicator,
+          .cta-primary {
+            animation: none;
+          }
+        }
       `}</style>
 
       {/* ── Particle background ── */}
@@ -243,23 +260,23 @@ const Home = () => {
       ───────────────────────────────────────── */}
       <motion.section
         style={{ opacity: heroOpacity, y: heroY }}
-        className="relative z-10 min-h-screen flex flex-col justify-center pt-20"
+        className="relative z-10 flex min-h-[calc(100svh-5rem)] flex-col justify-center py-8 sm:min-h-screen sm:py-12 lg:py-20"
       >
         {/* Top label */}
-        <div className="flex justify-center mb-12">
+        <div className="mb-8 flex justify-center sm:mb-12">
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="flex items-center gap-2 px-4 py-2 rounded-full glass-card text-xs text-violet-300 uppercase tracking-widest"
+            className="glass-card flex items-center gap-2 rounded-full px-3 py-2 text-[10px] uppercase tracking-[0.18em] text-violet-300 sm:px-4 sm:text-xs sm:tracking-widest"
           >
             <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
             Available for opportunities
           </motion.div>
         </div>
 
-        <div className="max-w-6xl mx-auto px-6 w-full">
-          <div className="grid lg:grid-cols-5 gap-16 items-center">
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
+          <div className="grid items-center gap-10 lg:grid-cols-5 lg:gap-16">
 
             {/* ── Left: Text ── */}
             <motion.div
@@ -268,23 +285,23 @@ const Home = () => {
               transition={{ duration: 0.7, delay: 0.3 }}
               className="lg:col-span-3 text-center lg:text-left"
             >
-              <p className="text-violet-400 text-sm font-medium tracking-[0.3em] uppercase mb-4">
+              <p className="mb-3 text-xs font-medium uppercase tracking-[0.32em] text-violet-400 sm:mb-4 sm:text-sm">
                 Hello, I'm
               </p>
 
-              <h1 className="hero-name text-5xl md:text-6xl xl:text-7xl leading-[0.95] mb-6 text-white drop-shadow-[0_18px_35px_rgba(168,85,247,0.22)]">
+              <h1 className="hero-name mb-5 text-4xl leading-[0.98] text-white drop-shadow-[0_18px_35px_rgba(168,85,247,0.22)] min-[380px]:text-5xl md:text-6xl xl:text-7xl">
                 Sasindu<br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-br from-violet-300 via-fuchsia-300 to-pink-400">
                   Diluranga
                 </span>
               </h1>
 
-              <h2 className="text-lg md:text-xl text-gray-400 font-light mb-8 min-h-[1.8em]">
+              <h2 className="mb-6 min-h-[1.8em] text-base font-light text-gray-400 sm:mb-8 md:text-xl">
                 <Typewriter words={roles} />
               </h2>
 
               {/* Bio */}
-              <p className="text-gray-400 text-base leading-relaxed max-w-xl mx-auto lg:mx-0 mb-10">
+              <p className="mx-auto mb-7 max-w-xl text-sm leading-relaxed text-gray-400 sm:mb-10 sm:text-base lg:mx-0">
                 Software Engineering undergraduate at <span className="text-violet-300 font-medium">SLIIT</span>, 
                 specialising in MERN-stack applications and AI-driven systems. Also a 
                 <span className="text-fuchsia-300 font-medium"> professional music producer</span> — 
@@ -292,16 +309,16 @@ const Home = () => {
               </p>
 
               {/* CTAs */}
-              <div className="flex flex-wrap gap-3 justify-center lg:justify-start mb-10">
+              <div className="mb-8 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:justify-center sm:mb-10 lg:justify-start">
                 <Link
                   to="/projects"
-                  className="cta-primary inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-white"
+                  className="cta-primary inline-flex min-h-11 items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold text-white sm:px-6"
                 >
                   View My Work <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
                   to="/career-development-plan"
-                  className="cta-secondary inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-gray-200"
+                  className="cta-secondary inline-flex min-h-11 items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold text-gray-200 sm:px-6"
                 >
                   Career Plan <ExternalLink className="w-4 h-4" />
                 </Link>
@@ -314,7 +331,7 @@ const Home = () => {
                     link.click();
                     document.body.removeChild(link);
                   }}
-                  className="cta-secondary inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-gray-200"
+                  className="cta-secondary col-span-2 inline-flex min-h-11 items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold text-gray-200 sm:col-span-1 sm:px-6"
                 >
                   <Download className="w-4 h-4" /> Download CV
                 </button>
@@ -334,7 +351,7 @@ const Home = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={s.label}
-                    className="social-btn p-3 rounded-xl"
+                    className="social-btn rounded-xl p-3"
                   >
                     {s.icon}
                   </motion.a>
@@ -354,8 +371,8 @@ const Home = () => {
                 {/* Glow ring */}
                 <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-violet-500 to-pink-500 blur-2xl opacity-25 scale-110" />
                 {/* Rotating border */}
-                <div className="relative w-56 h-56 mx-auto">
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-violet-500 via-fuchsia-500 to-pink-500 animate-spin" style={{ animationDuration: '8s' }} />
+                <div className="relative mx-auto h-44 w-44 sm:h-56 sm:w-56">
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-violet-500 via-fuchsia-500 to-pink-500 animate-spin" style={{ animationDuration: shouldReduceMotion ? '0s' : '8s' }} />
                   <div className="absolute inset-[3px] rounded-full bg-[#080810]" />
                   <div className="absolute inset-[6px] rounded-full overflow-hidden avatar-float">
                     <img
@@ -368,14 +385,14 @@ const Home = () => {
               </div>
 
               {/* Skill chips */}
-              <div className="grid grid-cols-2 gap-3 w-full max-w-xs">
+              <div className="grid w-full max-w-xs grid-cols-2 gap-3">
                 {highlights.map((h, i) => (
                   <motion.div
                     key={h.label}
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.7 + i * 0.1 }}
-                    className={`rounded-xl border ${h.border} bg-gradient-to-br ${h.color} px-4 py-3 flex items-center gap-2 cursor-default tag-chip`}
+                    className={`tag-chip flex cursor-default items-center gap-2 rounded-xl border ${h.border} bg-gradient-to-br ${h.color} px-3 py-3 sm:px-4`}
                   >
                     <span className="text-violet-300">{h.icon}</span>
                     <span className="text-xs text-gray-200 font-medium">{h.label}</span>
@@ -384,7 +401,7 @@ const Home = () => {
               </div>
 
               {/* Stats strip */}
-              <div className="w-full max-w-xs glass-card rounded-2xl px-6 py-4 grid grid-cols-3 divide-x divide-white/10">
+              <div className="glass-card grid w-full max-w-xs grid-cols-3 divide-x divide-white/10 rounded-2xl px-4 py-4 sm:px-6">
                 <StatCard value={15} label="Projects" />
                 <StatCard value={2} label="Years Exp" />
                 <StatCard value={5} label="AI Models" />
@@ -394,7 +411,7 @@ const Home = () => {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 scroll-indicator z-10">
+        <div className="scroll-indicator absolute bottom-3 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 sm:flex sm:bottom-8">
           <span className="text-[10px] text-gray-500 uppercase tracking-widest">Scroll</span>
           <ChevronDown className="w-4 h-4 text-violet-400" />
         </div>
@@ -403,10 +420,10 @@ const Home = () => {
       {/* ─────────────────────────────────────────
           TECH STACK MARQUEE
       ───────────────────────────────────────── */}
-      <section className="relative z-10 py-16">
-        <div className="divider-line mb-12" />
-        <div className="max-w-6xl mx-auto px-6">
-          <p className="text-center text-[11px] text-gray-500 uppercase tracking-[0.35em] mb-8">
+      <section className="relative z-10 py-10 sm:py-16">
+        <div className="divider-line mb-8 sm:mb-12" />
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <p className="mb-6 text-center text-[10px] uppercase tracking-[0.28em] text-gray-500 sm:mb-8 sm:text-[11px] sm:tracking-[0.35em]">
             Technologies I work with
           </p>
           <div className="flex flex-wrap justify-center gap-3">
@@ -424,15 +441,15 @@ const Home = () => {
             ))}
           </div>
         </div>
-        <div className="divider-line mt-12" />
+        <div className="divider-line mt-8 sm:mt-12" />
       </section>
 
       {/* ─────────────────────────────────────────
           ABOUT SNAPSHOT
       ───────────────────────────────────────── */}
-      <section className="relative z-10 py-16">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-6">
+      <section className="relative z-10 py-10 sm:py-16">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="grid gap-5 md:grid-cols-3 md:gap-6">
             {[
               {
                 icon: <Code2 className="w-6 h-6" />,

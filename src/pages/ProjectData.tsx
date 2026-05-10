@@ -147,7 +147,7 @@ technologies: ['React', 'MongoDB', 'Express.js', 'Node.js', 'Tailwind CSS', 'MER
       "description": "A modern e-commerce website for Cannibal.co, a branded clothing company, enabling users to browse and purchase products.",
       "image": "https://i.ibb.co/3fF40qp/image.png", // Replace with your actual project image URL
       "github": "https://github.com/Wolferlk/cannible", // Replace with your actual repository link
-      "live": "https://cannible.vercel.app/", // Replace with your live site URL
+      "live": "https://cannibalco.com/", // Replace with your live site URL
       "technologies": ["TypeScript", "JavaScript", "Tailwind CSS"],
       "features": [
         "Responsive and modern UI for browsing products",
@@ -238,7 +238,7 @@ technologies: ['React', 'MongoDB', 'Express.js', 'Node.js', 'Tailwind CSS', 'MER
   "id": 9,
   "title": "The Notes App",
   "description": "A simple and intuitive Android application for creating, editing, and managing notes, developed using Kotlin in Android Studio.",
-  "image": "https://private-user-images.githubusercontent.com/127308777/329778317-ea753bf9-74cb-4a43-bb46-f6abfd9b738c.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzYzMTc5OTQsIm5iZiI6MTczNjMxNzY5NCwicGF0aCI6Ii8xMjczMDg3NzcvMzI5Nzc4MzE3LWVhNzUzYmY5LTc0Y2ItNGE0My1iYjQ2LWY2YWJmZDliNzM4Yy5qcGc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMTA4JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDEwOFQwNjI4MTRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1jYzU5Yjc4M2NmNzU2YTI3YjZhZTRhMjQwMDUxNmZkZDIwZWYyZjhiMTdjY2FhYjE5YjNmZWI4MjczYjU5YWU2JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.ujlDj9w1KWSI5tfvfsh98F_K5y5J435ggbM9QlT2M-s",
+  "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6aNK4uGBhCkDH3L3iD1m90_tKiH9atMIdBA&s",
   "github": "https://github.com/Wolferlk/TheNotesApp",
   "live": "",
   "technologies": ["Kotlin", "Android Studio"],

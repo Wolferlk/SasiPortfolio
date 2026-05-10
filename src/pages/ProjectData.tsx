@@ -119,52 +119,7 @@ technologies: ['React', 'MongoDB', 'Express.js', 'Node.js', 'Tailwind CSS', 'MER
     'https://i.ibb.co/Qvp8NXFk/image.png',
     'https://i.ibb.co/R4dLzCLB/image.png'
   ],
-}
-,,{
-  id: 2,
-  title: 'Restaurant POS System',
-  description: 'A powerful Windows-based Restaurant POS system designed to manage orders, billing, inventory, kitchen operations, and customer management efficiently.',
-
-  image: 'https://i.ibb.co/qMbvG9Xm/1.png',
-
-  github: 'https://github.com/Wolferlk',
-  live: '',
-
-technologies: ['React', 'MongoDB', 'Express.js', 'Node.js', 'Tailwind CSS', 'MERN Stack'],
-  features: [
-    'Modern and user-friendly POS dashboard for restaurant management',
-    'Order management system with real-time table handling',
-    'Billing and invoice generation with fast checkout process',
-    'Inventory and stock management for restaurant items',
-    'Employee and customer management functionalities',
-    'Sales reporting and analytics dashboard',
-    'Kitchen order management integration',
-    'Secure database management using SQL Server',
-    'Responsive desktop UI optimized for restaurant workflow',
-    'Fast and efficient performance for daily restaurant operations'
-  ],
-
-  challenges:
-    'Managing real-time order processing, optimizing database performance for large transaction volumes, designing an intuitive POS workflow for restaurant staff, and ensuring smooth synchronization between billing, inventory, and kitchen operations.',
-
-  screenshots: [
-    'https://i.ibb.co/qMbvG9Xm/1.png',
-    'https://i.ibb.co/DZzd1XD/2.png',
-    'https://i.ibb.co/hR0tnbrv/3.png',
-    'https://i.ibb.co/W4zY3fKD/4.png',
-    'https://i.ibb.co/mCv4HQjg/5.png',
-    'https://i.ibb.co/V0gWhcgj/6.png',
-    'https://i.ibb.co/DPpBsrHg/7.png',
-    'https://i.ibb.co/k2NzCxcf/8.png',
-    'https://i.ibb.co/nMR3Jnzk/9.png',
-    'https://i.ibb.co/3583qnTg/10.png',
-    'https://i.ibb.co/SXTztvmr/11.png',
-    'https://i.ibb.co/8nj8YwsW/12.png',
-    'https://i.ibb.co/Y47R3vC6/13.png',
-    'https://i.ibb.co/LzWw2P1v/14.png',
-    'https://i.ibb.co/qwf1sQS/15.png'
-  ],
-},,{
+},{
   id: 2,
   title: 'Restaurant POS System',
   description: 'A powerful Windows-based Restaurant POS system designed to manage orders, billing, inventory, kitchen operations, and customer management efficiently.',

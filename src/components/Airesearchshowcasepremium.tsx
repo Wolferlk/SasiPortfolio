@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Brain, 
-  Network, 
   Eye, 
   Cpu, 
   Zap, 
@@ -15,15 +14,15 @@ import {
   TrendingUp
 } from 'lucide-react';
 
+const metrics = [
+  { label: 'Model Accuracy', value: '94.7%', icon: <TrendingUp className="w-5 h-5" /> },
+  { label: 'Processing Speed', value: '< 2s', icon: <Zap className="w-5 h-5" /> },
+  { label: 'Error Types', value: '50+', icon: <Database className="w-5 h-5" /> },
+];
+
 const AIResearchShowcasePremium = () => {
   const [hoveredTech, setHoveredTech] = useState<number | null>(null);
   const [activeMetric, setActiveMetric] = useState(0);
-
-  const metrics = [
-    { label: 'Model Accuracy', value: '94.7%', icon: <TrendingUp className="w-5 h-5" /> },
-    { label: 'Processing Speed', value: '< 2s', icon: <Zap className="w-5 h-5" /> },
-    { label: 'Error Types', value: '50+', icon: <Database className="w-5 h-5" /> },
-  ];
 
   useEffect(() => {
     const interval = setInterval(() => {

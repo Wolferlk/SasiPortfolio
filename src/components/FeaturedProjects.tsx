@@ -4,19 +4,15 @@ import { Github, ExternalLink, ArrowRight, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ProjectData from '../pages/ProjectData';
 
-const FeaturedProjects = () => {
-  const [featuredProjects, setFeaturedProjects] = useState<typeof ProjectData>([]);
+const getRandomProjects = () => {
+  const shuffled = [...ProjectData].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, 2);
+};
 
-  // Function to get 2 random projects
-  const getRandomProjects = () => {
-    const shuffled = [...ProjectData].sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, 2);
-  };
+const FeaturedProjects = () => {
+  const [featuredProjects, setFeaturedProjects] = useState<typeof ProjectData>(() => getRandomProjects());
 
   useEffect(() => {
-    // Set initial random projects
-    setFeaturedProjects(getRandomProjects());
-
     // Change projects every 30 seconds
     const interval = setInterval(() => {
       setFeaturedProjects(getRandomProjects());
@@ -48,7 +44,7 @@ const FeaturedProjects = () => {
   };
 
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="relative overflow-hidden py-12 sm:py-20">
       {/* Background decoration */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-1/4 -left-48 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
@@ -60,20 +56,20 @@ const FeaturedProjects = () => {
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={containerVariants}
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
       >
         {/* Section Header */}
-        <motion.div variants={itemVariants} className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 mb-4">
+        <motion.div variants={itemVariants} className="mb-10 text-center sm:mb-16">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-purple-500/20 bg-purple-500/10 px-4 py-2">
             <Sparkles className="w-4 h-4 text-purple-400" />
             <span className="text-sm font-medium text-purple-300">Featured Work</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="mb-4 text-3xl font-bold md:text-5xl">
             <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
               Latest Projects
             </span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="mx-auto max-w-2xl text-sm leading-relaxed text-gray-400 sm:text-lg">
             Explore my recent work showcasing innovative solutions and creative designs
           </p>
         </motion.div>
@@ -81,7 +77,7 @@ const FeaturedProjects = () => {
         {/* Projects Grid */}
         <motion.div
           variants={containerVariants}
-          className="grid md:grid-cols-2 gap-8 mb-12"
+          className="mb-10 grid gap-5 md:grid-cols-2 md:gap-8 sm:mb-12"
         >
           {featuredProjects.map((project, index) => (
             <motion.div
@@ -92,27 +88,28 @@ const FeaturedProjects = () => {
             >
               <div className="glass-card overflow-hidden h-full flex flex-col">
                 {/* Project Image */}
-                <div className="relative overflow-hidden h-64">
+                <div className="relative h-44 overflow-hidden sm:h-64">
                   <motion.img
                     src={project.image}
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
                   
                   {/* Project Number Badge */}
-                  <div className="absolute top-4 right-4 w-12 h-12 rounded-full bg-purple-500/20 backdrop-blur-sm border border-purple-500/30 flex items-center justify-center">
-                    <span className="text-purple-300 font-bold">#{String(index + 1).padStart(2, '0')}</span>
+                  <div className="absolute right-3 top-3 flex h-10 w-10 items-center justify-center rounded-full border border-purple-500/30 bg-purple-500/20 backdrop-blur-sm sm:right-4 sm:top-4 sm:h-12 sm:w-12">
+                    <span className="text-sm font-bold text-purple-300 sm:text-base">#{String(index + 1).padStart(2, '0')}</span>
                   </div>
                 </div>
 
                 {/* Project Content */}
-                <div className="p-6 flex-1 flex flex-col">
-                  <h3 className="text-2xl font-bold mb-3 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <div className="flex flex-1 flex-col p-4 sm:p-6">
+                  <h3 className="mb-3 text-xl font-bold leading-snug bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent sm:text-2xl">
                     {project.title}
                   </h3>
                   
-                  <p className="text-gray-300 mb-4 line-clamp-3 flex-1">
+                  <p className="mb-4 line-clamp-3 flex-1 text-sm leading-relaxed text-gray-300 sm:text-base">
                     {project.description}
                   </p>
 
@@ -134,31 +131,35 @@ const FeaturedProjects = () => {
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="flex gap-3">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-purple-500/10 text-purple-300 hover:bg-purple-500/20 border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300"
-                    >
-                      <Github size={18} />
-                      <span className="text-sm font-medium">Code</span>
-                    </a>
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300"
-                    >
-                      <ExternalLink size={18} />
-                      <span className="text-sm font-medium">Live</span>
-                    </a>
+                  <div className={`grid gap-3 ${project.live ? 'grid-cols-2' : 'grid-cols-1'}`}>
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex min-h-11 items-center justify-center gap-2 rounded-lg border border-purple-500/20 bg-purple-500/10 px-4 py-2.5 text-purple-300 transition-all duration-300 hover:border-purple-500/40 hover:bg-purple-500/20"
+                      >
+                        <Github size={18} />
+                        <span className="text-sm font-medium">Code</span>
+                      </a>
+                    )}
+                    {project.live && (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex min-h-11 items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 px-4 py-2.5 text-white transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/50"
+                      >
+                        <ExternalLink size={18} />
+                        <span className="text-sm font-medium">Live</span>
+                      </a>
+                    )}
                   </div>
 
                   {/* View Details Link */}
                   <Link
                     to={`/projects/${project.id}`}
-                    className="mt-4 inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 text-sm font-medium group/link"
+                    className="group/link mt-4 inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-white/5 px-4 text-sm font-medium text-purple-300 transition-colors hover:bg-purple-500/20 hover:text-purple-200 sm:justify-start sm:bg-transparent sm:px-0"
                   >
                     View Full Details
                     <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1" />
@@ -176,14 +177,14 @@ const FeaturedProjects = () => {
         <motion.div variants={itemVariants} className="text-center">
           <Link
             to="/projects"
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold hover:shadow-2xl hover:shadow-purple-500/50 transform hover:scale-105 transition-all duration-300"
+            className="inline-flex min-h-11 items-center gap-3 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/50 sm:rounded-full sm:px-8 sm:py-4 sm:text-base"
           >
             <span>View All Projects</span>
             <ArrowRight className="w-5 h-5" />
           </Link>
           
           {/* Project count indicator */}
-          <p className="mt-4 text-gray-400 text-sm">
+          <p className="mt-4 text-xs text-gray-400 sm:text-sm">
             Showing 2 of {ProjectData.length} projects • Auto-rotating every 30s
           </p>
         </motion.div>

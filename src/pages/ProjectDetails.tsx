@@ -14,13 +14,13 @@ const ProjectDetails = () => {
   // If no project is found, display a message
   if (!project) {
     return (
-      <div className="py-12 text-center">
-        <h1 className="text-4xl font-bold text-gray-300">
+      <div className="py-10 text-center sm:py-12">
+        <h1 className="text-3xl font-bold text-gray-300 sm:text-4xl">
           Project Not Found
         </h1>
         <Link
           to="/projects"
-          className="inline-flex items-center gap-2 text-gray-300 hover:text-purple-500 transition-colors mt-8"
+          className="mt-8 inline-flex min-h-11 items-center gap-2 rounded-lg bg-white/5 px-4 text-gray-300 transition-colors hover:text-purple-500"
         >
           <ArrowLeft size={20} />
           Back to Projects
@@ -30,79 +30,92 @@ const ProjectDetails = () => {
   }
 
   return (
-    <div className="py-12">
+    <div className="py-8 sm:py-12">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="max-w-4xl mx-auto"
+        className="mx-auto w-full max-w-4xl"
       >
         <Link
           to="/projects"
-          className="inline-flex items-center gap-2 text-gray-300 hover:text-purple-500 transition-colors mb-8"
+          className="mb-6 inline-flex min-h-11 items-center gap-2 rounded-lg bg-white/5 px-4 text-sm text-gray-300 transition-colors hover:bg-purple-500/20 hover:text-purple-200 sm:mb-8"
         >
           <ArrowLeft size={20} />
           Back to Projects
         </Link>
 
-        <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
+        <h1 className="mb-4 break-words text-3xl font-bold leading-tight bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent sm:text-4xl">
           {project.title}
         </h1>
 
-        <div className="glass-card mb-8">
+        <div className="glass-card mb-8 overflow-hidden">
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-[400px] object-cover rounded-lg mb-6"
+            className="mb-5 h-52 w-full rounded-lg object-cover sm:mb-6 sm:h-72 md:h-[400px]"
           />
-          <div className="flex gap-4 mb-6">
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/20 text-purple-300 hover:bg-purple-500/30 transition-colors"
-            >
-              <Github size={18} />
-              View Code
-            </a>
-            <a
-              href={project.live}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/20 text-purple-300 hover:bg-purple-500/30 transition-colors"
-            >
-              <ExternalLink size={18} />
-              Live Demo
-            </a>
+          <div className="mb-6 flex flex-col gap-3 sm:flex-row">
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-purple-500/20 px-4 text-sm font-semibold text-purple-200 transition-colors hover:bg-purple-500/30"
+              >
+                <Github size={18} />
+                View Code
+              </a>
+            )}
+            {project.live && (
+              <a
+                href={project.live}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-purple-500/20 px-4 text-sm font-semibold text-purple-200 transition-colors hover:bg-purple-500/30"
+              >
+                <ExternalLink size={18} />
+                Live Demo
+              </a>
+            )}
           </div>
-          <p className="text-gray-300 mb-6">{project.description}</p>
-          <div className="flex flex-wrap gap-2 mb-6">
+          <p className="mb-6 text-sm leading-relaxed text-gray-300 sm:text-base">
+            {project.description}
+          </p>
+          <div className="mb-6 flex flex-wrap gap-2">
             {project.technologies.map((tech) => (
               <span
                 key={tech}
-                className="px-3 py-1 text-sm bg-purple-500/20 text-purple-300 rounded-full"
+                className="rounded-full bg-purple-500/20 px-2.5 py-1 text-xs text-purple-300 sm:px-3 sm:text-sm"
               >
                 {tech}
               </span>
             ))}
           </div>
-          <h2 className="text-2xl font-semibold mb-4">Key Features</h2>
-          <ul className="list-disc list-inside mb-6 text-gray-300">
+          <h2 className="mb-4 text-xl font-semibold sm:text-2xl">Key Features</h2>
+          <ul className="mb-6 list-disc space-y-2 pl-5 text-sm leading-relaxed text-gray-300 sm:text-base">
             {project.features.map((feature, index) => (
-              <li key={index} className="mb-2">
+              <li key={index}>
                 {feature}
               </li>
             ))}
           </ul>
-          <h2 className="text-2xl font-semibold mb-4">Challenges & Solutions</h2>
-          <p className="text-gray-300 mb-6">{project.challenges}</p>
-          <h2 className="text-2xl font-semibold mb-4">Screenshots</h2>
-          <div className="grid md:grid-cols-2 gap-4">
+          {project.challenges && (
+            <>
+              <h2 className="mb-4 text-xl font-semibold sm:text-2xl">Challenges & Solutions</h2>
+              <p className="mb-6 text-sm leading-relaxed text-gray-300 sm:text-base">
+                {project.challenges}
+              </p>
+            </>
+          )}
+          <h2 className="mb-4 text-xl font-semibold sm:text-2xl">Screenshots</h2>
+          <div className="grid gap-4 md:grid-cols-2">
             {project.screenshots.map((screenshot, index) => (
               <img
                 key={index}
                 src={screenshot}
                 alt={`Screenshot ${index + 1}`}
-                className="rounded-lg"
+                className="w-full rounded-lg object-cover"
+                loading="lazy"
               />
             ))}
           </div>

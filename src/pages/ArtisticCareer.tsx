@@ -1,354 +1,400 @@
-import { useState, useEffect, useRef } from "react";
+import { motion } from 'framer-motion';
+import {
+  AudioWaveform,
+  Building2,
+  Calendar,
+  Disc3,
+  ExternalLink,
+  Headphones,
+  Mic2,
+  Music,
+  Play,
+  Radio,
+  Sparkles,
+  Users,
+} from 'lucide-react';
 
-const artist = {
-  name: "Wolfer",
-  realName: "A.G. Sasindu Diluranga",
-  tagline: "DJ · Producer · Composer · Mixing Engineer",
-  origin: "Sri Lanka · Born 2001",
-  bio: "Meet A.G. Sasindu Diluranga, aka Wolfer — a dynamic DJ/Producer, composer, and mixing engineer from Sri Lanka. His musical journey began at 14, fueled by an unyielding passion for Dance/Electronic, Future Bass, House Music, and EDM. As SD MUSIC RECORDS founder and studio owner, Wolfer mentors emerging artists while collaborating with Sri Lanka's top talent. In 2024 he wowed 3,000 fans at his first live show — cementing his status as an electronic music force.",
-  profilePic: "https://i.ibb.co/M7CTKHH/Whats-App-Image-2024-10-07-at-9-58-55-PM-removebg-preview.png",
-  stats: [
-    { label: "Years Active", value: "10+" },
-    { label: "Live Crowd", value: "3K+" },
-    { label: "Releases", value: "20+" },
-    { label: "Artists Mentored", value: "15+" },
-  ],
-  genres: ["Future Bass", "Drum & Bass", "House", "EDM", "Electronic"],
-  streamingLinks: [
-    { platform: "Spotify", url: "https://open.spotify.com/artist/1BDgRUInxjvI7BrgASGJUd?si=skX8kndJSf6znX4zNt3jOQ", icon: "🎵" },
-    { platform: "Apple Music", url: "https://music.apple.com/lk/artist/wolfer/1556748726", icon: "🎶" },
-    { platform: "YouTube", url: "https://www.youtube.com/c/SASINDUDILURANGA", icon: "▶" },
-    { platform: "Instagram", url: "https://www.instagram.com/wolfer_sl/", icon: "📸" },
-    { platform: "Facebook", url: "https://www.facebook.com/SASINDU.A.DILURANGA", icon: "👥" },
-    { platform: "Twitter", url: "https://twitter.com/wolfer_sl", icon: "🐦" },
-  ],
-  works: [
-    { name: "Nuhuru Akase", photo: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/34/0d/c5/340dc5ac-6697-afca-e2aa-a34142720147/198999560060.jpg/316x316bb.webp", date: "Dec 2024", type: "Single", description: "Drum & Bass Modern Sinhala Song ft. Deneth Viduranga", link: "https://fanlink.tv/nuhuruakase", color: "#a78bfa" },
-    { name: "Bhawa Satana", photo: "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/b5/7d/c1/b57dc1b2-ea79-d9a4-dd48-926f3ac1f238/198595457900.jpg/296x296bb.webp", date: "Aug 2024", type: "Single", description: "Drum & Bass Modern Sinhala Song ft. Deneth Viduranga", link: "https://sdmusicrecords.fanlink.tv/BHAWA-SATANA", color: "#f472b6" },
-    { name: "Sunfire Festival", photo: "https://scontent.fcmb1-2.fna.fbcdn.net/v/t39.30808-6/419585167_122106517808179942_45011245037889558_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=GlnOvJvExOQQ7kNvgH5cU6h&_nc_oc=AdhZbIZNfQjsv8FiOwMIV_cggbBswmhsTivFroVdE4Mspno5Nmft5r7cuciT3if0dZ--8ZsgL-wEondmG8C05v3w&_nc_zt=23&_nc_ht=scontent.fcmb1-2.fna&_nc_gid=AZJz55CcfV8sJU4WsgoHdKk&oh=00_AYCCyv6BHjqRjMHAPsAtqRqieLqRao730oDdWYmg1DYkYw&oe=6784079D", date: "Mar 2024", type: "Live Show", description: "Downsouth EDM Festival — Mainstream DJ", link: "https://www.facebook.com/sunfirehikkaduwa", color: "#fb923c" },
-    { name: "Rider Movie", photo: "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/1e/1e/a0/1e1ea094-6c13-aa02-a010-664867eccc0c/5063440397678_cover.jpg/296x296bb.webp", date: "Aug 2023", type: "Film Score", description: "Composed Movie Music — directed by Rajith Hiran", link: "https://www.imdb.com/title/tt30451025/", color: "#34d399" },
-    { name: "Shades Of Romance", photo: "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/9e/ff/0b/9eff0b63-2ac1-34dc-d58d-fa3ecc0534d1/5063341839932_cover.jpg/296x296bb.webp", date: "May 2023", type: "Album", description: "EDM Music Album with 12 Featuring Artists", link: "https://open.spotify.com/playlist/3aPnzUOqrJloIVBLjkSvOH", color: "#60a5fa" },
-    { name: "Premiye Numba", photo: "https://cdn-images.dzcdn.net/images/cover/8594b4b829e19fce0212c8330a593da9/1900x1900-000000-80-0-0.jpg", date: "Jan 2024", type: "Single", description: "Sri Lankan Modern Classic Sinhala Song", link: "https://sd-music-records-2024.fanlink.tv/premiyenumba", color: "#e879f9" },
-    { name: "Liyana", photo: "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/c1/4d/f2/c14df204-aec2-d446-3b67-e64277446085/artwork.jpg/296x296bb.webp", date: "Apr 2021", type: "Single", description: "Pop EDM Rap Sri Lankan Sinhala Song", link: "https://www.youtube.com/watch?v=QnbTYCVQQcI", color: "#fbbf24" },
-  ],
+type ArtistProfile = {
+  name: string;
+  role: string;
+  spotifyUrl: string;
+  embedUrl: string;
+  image: string;
+  note: string;
 };
 
-function useInView(threshold = 0.15) {
-  const ref = useRef(null);
-  const [inView, setInView] = useState(false);
-  useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setInView(true); }, { threshold });
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
-  return [ref, inView];
-}
+type Release = {
+  name: string;
+  date: string;
+  type: string;
+  description: string;
+  image: string;
+  link: string;
+};
 
-function AnimatedText({ text, delay = 0, className = "" }) {
-  const [ref, inView] = useInView(0.1);
+const artistProfiles: ArtistProfile[] = [
+  {
+    name: 'WOLFER',
+    role: 'DJ, producer, composer and mixing engineer',
+    spotifyUrl: 'https://open.spotify.com/artist/1BDgRUInxjvI7BrgASGJUd',
+    embedUrl: 'https://open.spotify.com/embed/artist/1BDgRUInxjvI7BrgASGJUd?utm_source=generator&theme=0',
+    image: 'https://image-cdn-ak.spotifycdn.com/image/ab676161000051747a3d5ec2f00f413961bb9ce0',
+    note: 'Main electronic music artist profile on Spotify.',
+  },
+  {
+    name: 'Sasindu Diluranga',
+    role: 'Composer, producer and solo artist profile',
+    spotifyUrl: 'https://open.spotify.com/artist/0O9Zjj7cNS7dPkSLTUSmnN',
+    embedUrl: 'https://open.spotify.com/embed/artist/0O9Zjj7cNS7dPkSLTUSmnN?utm_source=generator&theme=0',
+    image: 'https://image-cdn-ak.spotifycdn.com/image/ab676161000051741e7bd0656b53d2ae8db6fcaa',
+    note: 'Personal artist profile for releases under Sasindu Diluranga.',
+  },
+];
+
+const stats = [
+  { label: 'Years active', value: '10+', icon: Calendar },
+  { label: 'Live crowd', value: '3K+', icon: Users },
+  { label: 'Releases', value: '20+', icon: Disc3 },
+  { label: 'Artists mentored', value: '15+', icon: Mic2 },
+];
+
+const specialties = [
+  'Future Bass',
+  'Drum & Bass',
+  'House',
+  'EDM',
+  'Electronic',
+  'Mixing & Mastering',
+  'Film Scoring',
+  'Sinhala Pop Fusion',
+];
+
+const releases: Release[] = [
+  {
+    name: 'Nuhuru Akase',
+    image: 'https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/34/0d/c5/340dc5ac-6697-afca-e2aa-a34142720147/198999560060.jpg/316x316bb.webp',
+    date: 'Dec 2024',
+    type: 'Single',
+    description: 'Drum & Bass modern Sinhala release featuring Deneth Viduranga.',
+    link: 'https://fanlink.tv/nuhuruakase',
+  },
+  {
+    name: 'Bhawa Satana',
+    image: 'https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/b5/7d/c1/b57dc1b2-ea79-d9a4-dd48-926f3ac1f238/198595457900.jpg/296x296bb.webp',
+    date: 'Aug 2024',
+    type: 'Single',
+    description: 'Modern Sinhala Drum & Bass production with Deneth Viduranga.',
+    link: 'https://sdmusicrecords.fanlink.tv/BHAWA-SATANA',
+  },
+  {
+    name: 'Premiye Numba',
+    image: 'https://cdn-images.dzcdn.net/images/cover/8594b4b829e19fce0212c8330a593da9/1900x1900-000000-80-0-0.jpg',
+    date: 'Jan 2024',
+    type: 'Single',
+    description: 'Sri Lankan modern classic Sinhala song production.',
+    link: 'https://sd-music-records-2024.fanlink.tv/premiyenumba',
+  },
+  {
+    name: 'Rider Movie',
+    image: 'https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/1e/1e/a0/1e1ea094-6c13-aa02-a010-664867eccc0c/5063440397678_cover.jpg/296x296bb.webp',
+    date: 'Aug 2023',
+    type: 'Film Score',
+    description: 'Original movie music composed for Rider, directed by Rajith Hiran.',
+    link: 'https://www.imdb.com/title/tt30451025/',
+  },
+  {
+    name: 'Shades Of Romance',
+    image: 'https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/9e/ff/0b/9eff0b63-2ac1-34dc-d58d-fa3ecc0534d1/5063341839932_cover.jpg/296x296bb.webp',
+    date: 'May 2023',
+    type: 'Album',
+    description: 'EDM album project featuring 12 artists and collaborators.',
+    link: 'https://open.spotify.com/playlist/3aPnzUOqrJloIVBLjkSvOH',
+  },
+  {
+    name: 'Liyana',
+    image: 'https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/c1/4d/f2/c14df204-aec2-d446-3b67-e64277446085/artwork.jpg/296x296bb.webp',
+    date: 'Apr 2021',
+    type: 'Single',
+    description: 'Pop, EDM and rap influenced Sinhala release.',
+    link: 'https://www.youtube.com/watch?v=QnbTYCVQQcI',
+  },
+];
+
+const platforms = [
+  { label: 'Spotify', url: 'https://open.spotify.com/artist/1BDgRUInxjvI7BrgASGJUd' },
+  { label: 'Apple Music', url: 'https://music.apple.com/lk/artist/wolfer/1556748726' },
+  { label: 'YouTube', url: 'https://www.youtube.com/c/SASINDUDILURANGA' },
+  { label: 'Instagram', url: 'https://www.instagram.com/wolfer_sl/' },
+  { label: 'Facebook', url: 'https://www.facebook.com/SASINDU.A.DILURANGA' },
+];
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0 },
+};
+
+function ArtistCard({ profile }: { profile: ArtistProfile }) {
   return (
-    <span ref={ref} className={className} style={{
-      display: "inline-block",
-      opacity: inView ? 1 : 0,
-      transform: inView ? "translateY(0)" : "translateY(30px)",
-      transition: `opacity 0.7s ease ${delay}s, transform 0.7s ease ${delay}s`,
-    }}>{text}</span>
+    <motion.a
+      variants={fadeUp}
+      href={profile.spotifyUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group grid gap-4 rounded-lg border border-white/10 bg-white/[0.04] p-4 transition hover:-translate-y-1 hover:border-emerald-400/40 hover:bg-white/[0.07] sm:grid-cols-[104px_1fr] sm:p-5"
+    >
+      <img
+        src={profile.image}
+        alt={`${profile.name} Spotify profile`}
+        className="h-24 w-24 rounded-lg object-cover sm:h-[104px] sm:w-[104px]"
+      />
+      <div className="min-w-0">
+        <div className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-300">
+          <Music className="h-4 w-4" />
+          Spotify Artist
+        </div>
+        <h3 className="text-xl font-bold text-white sm:text-2xl">{profile.name}</h3>
+        <p className="mt-1 text-sm leading-6 text-slate-300">{profile.role}</p>
+        <p className="mt-3 text-sm text-slate-400">{profile.note}</p>
+        <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-emerald-300">
+          Open Spotify <ExternalLink className="h-4 w-4 transition group-hover:translate-x-1" />
+        </span>
+      </div>
+    </motion.a>
   );
 }
 
-function StatCard({ label, value, delay }) {
-  const [ref, inView] = useInView();
+function ReleaseCard({ release }: { release: Release }) {
   return (
-    <div ref={ref} style={{
-      textAlign: "center",
-      padding: "1.5rem 1rem",
-      background: "rgba(255,255,255,0.04)",
-      borderRadius: 16,
-      border: "1px solid rgba(255,255,255,0.08)",
-      backdropFilter: "blur(12px)",
-      opacity: inView ? 1 : 0,
-      transform: inView ? "translateY(0) scale(1)" : "translateY(20px) scale(0.95)",
-      transition: `all 0.6s cubic-bezier(0.34,1.56,0.64,1) ${delay}s`,
-    }}>
-      <div style={{ fontSize: "clamp(2rem, 5vw, 2.8rem)", fontWeight: 800, background: "linear-gradient(135deg, #a78bfa, #f472b6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", lineHeight: 1 }}>{value}</div>
-      <div style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.45)", marginTop: 6, textTransform: "uppercase", letterSpacing: "0.12em", fontWeight: 600 }}>{label}</div>
-    </div>
-  );
-}
-
-function WorkCard({ work, index }) {
-  const [ref, inView] = useInView();
-  const [hovered, setHovered] = useState(false);
-  return (
-    <a href={work.link} target="_blank" rel="noopener noreferrer" ref={ref}
-      onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
-      style={{
-        display: "block", textDecoration: "none", borderRadius: 20,
-        overflow: "hidden", position: "relative",
-        background: "rgba(255,255,255,0.04)",
-        border: `1px solid ${hovered ? work.color + "66" : "rgba(255,255,255,0.07)"}`,
-        opacity: inView ? 1 : 0,
-        transform: inView ? "translateY(0)" : "translateY(40px)",
-        transition: `all 0.6s cubic-bezier(0.34,1.56,0.64,1) ${index * 0.08}s, border-color 0.3s ease, box-shadow 0.3s ease`,
-        boxShadow: hovered ? `0 20px 60px ${work.color}22` : "none",
-        cursor: "pointer",
-      }}>
-      <div style={{ position: "relative", paddingBottom: "100%", overflow: "hidden" }}>
-        <img src={work.photo} alt={work.name} style={{
-          position: "absolute", inset: 0, width: "100%", height: "100%",
-          objectFit: "cover",
-          transform: hovered ? "scale(1.08)" : "scale(1)",
-          transition: "transform 0.5s ease",
-          filter: hovered ? "brightness(0.5)" : "brightness(0.7)",
-        }} />
-        <div style={{
-          position: "absolute", inset: 0,
-          background: `linear-gradient(to top, #0a0a0f 40%, transparent 100%)`,
-        }} />
-        <div style={{
-          position: "absolute", top: 12, left: 12,
-          background: work.color + "22", border: `1px solid ${work.color}66`,
-          color: work.color, fontSize: "0.65rem", fontWeight: 700,
-          padding: "4px 10px", borderRadius: 50, textTransform: "uppercase",
-          letterSpacing: "0.1em", backdropFilter: "blur(8px)",
-        }}>{work.type}</div>
-        <div style={{
-          position: "absolute", inset: 0, display: "flex", alignItems: "center",
-          justifyContent: "center", opacity: hovered ? 1 : 0, transition: "opacity 0.3s",
-        }}>
-          <div style={{ width: 52, height: 52, borderRadius: "50%", background: work.color, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20 }}>▶</div>
+    <motion.a
+      variants={fadeUp}
+      href={release.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group overflow-hidden rounded-lg border border-white/10 bg-slate-950/70 transition hover:-translate-y-1 hover:border-fuchsia-400/40 hover:bg-slate-900"
+    >
+      <div className="relative aspect-square overflow-hidden bg-slate-900">
+        <img
+          src={release.image}
+          alt={release.name}
+          className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+        <div className="absolute left-3 top-3 rounded-md border border-white/15 bg-black/55 px-2.5 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-white backdrop-blur">
+          {release.type}
+        </div>
+        <div className="absolute bottom-3 right-3 flex h-10 w-10 items-center justify-center rounded-full bg-emerald-400 text-black shadow-lg shadow-emerald-500/20">
+          <Play className="h-4 w-4 fill-current" />
         </div>
       </div>
-      <div style={{ padding: "1rem 1.1rem 1.2rem" }}>
-        <div style={{ fontSize: "0.7rem", color: "rgba(255,255,255,0.35)", marginBottom: 4, fontWeight: 600, letterSpacing: "0.1em" }}>{work.date}</div>
-        <div style={{ fontSize: "1rem", fontWeight: 700, color: "#fff", marginBottom: 4, lineHeight: 1.3 }}>{work.name}</div>
-        <div style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.5 }}>{work.description}</div>
+      <div className="p-4">
+        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">{release.date}</p>
+        <h3 className="mt-2 text-lg font-bold text-white">{release.name}</h3>
+        <p className="mt-2 text-sm leading-6 text-slate-400">{release.description}</p>
       </div>
-    </a>
+    </motion.a>
   );
 }
 
-function StreamingBtn({ item }) {
-  const [hov, setHov] = useState(false);
+export default function ArtisticCareer() {
   return (
-    <a href={item.url} target="_blank" rel="noopener noreferrer"
-      onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
-      style={{
-        display: "flex", alignItems: "center", gap: 10, padding: "0.7rem 1.2rem",
-        background: hov ? "rgba(167,139,250,0.15)" : "rgba(255,255,255,0.04)",
-        border: `1px solid ${hov ? "rgba(167,139,250,0.5)" : "rgba(255,255,255,0.08)"}`,
-        borderRadius: 50, textDecoration: "none", transition: "all 0.25s ease",
-        transform: hov ? "translateY(-2px)" : "none",
-        boxShadow: hov ? "0 8px 24px rgba(167,139,250,0.2)" : "none",
-      }}>
-      <span style={{ fontSize: 16 }}>{item.icon}</span>
-      <span style={{ fontSize: "0.82rem", fontWeight: 600, color: hov ? "#a78bfa" : "rgba(255,255,255,0.7)", whiteSpace: "nowrap" }}>{item.platform}</span>
-    </a>
-  );
-}
+    <div className="-mx-4 -mt-20 overflow-hidden bg-[#07090d] text-white sm:-mx-6 lg:-mx-8">
+      <section className="relative px-4 pb-16 pt-28 sm:px-6 sm:pb-20 sm:pt-32 lg:px-8">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(16,185,129,0.18),transparent_32%),radial-gradient(circle_at_90%_10%,rgba(217,70,239,0.16),transparent_34%),linear-gradient(135deg,rgba(15,23,42,0.7),rgba(7,9,13,0.95))]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:44px_44px] opacity-40" />
 
-function WaveBar({ delay }) {
-  return (
-    <div style={{
-      width: 3, borderRadius: 4,
-      background: "linear-gradient(to top, #a78bfa, #f472b6)",
-      animation: `wave 1.2s ease-in-out ${delay}s infinite alternate`,
-    }} />
-  );
-}
+        <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_430px] lg:items-center">
+          <motion.div initial="hidden" animate="visible" transition={{ staggerChildren: 0.08 }}>
+            <motion.div
+              variants={fadeUp}
+              className="mb-5 inline-flex items-center gap-2 rounded-full border border-emerald-400/25 bg-emerald-400/10 px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-200"
+            >
+              <AudioWaveform className="h-4 w-4" />
+              Artist Portfolio
+            </motion.div>
 
-export default function WolferPage() {
-  const [loaded, setLoaded] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
-  const [heroRef, heroInView] = useInView(0.01);
+            <motion.h1 variants={fadeUp} className="max-w-4xl text-4xl font-black leading-tight tracking-normal sm:text-6xl lg:text-7xl">
+              WOLFER
+              <span className="block bg-gradient-to-r from-emerald-300 via-cyan-200 to-fuchsia-300 bg-clip-text text-transparent">
+                Sasindu Diluranga
+              </span>
+            </motion.h1>
 
-  useEffect(() => {
-    setLoaded(true);
-    const onScroll = () => setScrollY(window.scrollY);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+            <motion.p variants={fadeUp} className="mt-5 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
+              Sri Lankan DJ, producer, composer and mixing engineer creating electronic music,
+              Sinhala fusion records, film music and collaborative releases through SD Music Records.
+            </motion.p>
 
-  return (
-    <div style={{ minHeight: "100vh", background: "#08080d", color: "#fff", fontFamily: "'Syne', 'Rajdhani', sans-serif", overflowX: "hidden" }}>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
-        @keyframes wave { from { height: 8px } to { height: 32px } }
-        @keyframes float { 0%,100% { transform: translateY(0px) } 50% { transform: translateY(-12px) } }
-        @keyframes spin-slow { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }
-        @keyframes pulse-ring { 0% { transform: scale(1); opacity: 0.4 } 100% { transform: scale(1.4); opacity: 0 } }
-        @keyframes grain { 0%,100%{transform:translate(0,0)} 10%{transform:translate(-2%,-3%)} 30%{transform:translate(2%,1%)} 50%{transform:translate(-1%,3%)} 70%{transform:translate(3%,-1%)} 90%{transform:translate(-2%,2%)} }
-        * { box-sizing: border-box; margin: 0; padding: 0 }
-        ::selection { background: rgba(167,139,250,0.3) }
-        ::-webkit-scrollbar { width: 4px; background: #111 }
-        ::-webkit-scrollbar-thumb { background: linear-gradient(#a78bfa, #f472b6); border-radius: 4px }
-      `}</style>
+            <motion.div variants={fadeUp} className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="#spotify"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-emerald-400 px-5 py-3 text-sm font-bold text-black transition hover:bg-emerald-300"
+              >
+                <Headphones className="h-5 w-5" />
+                Listen on Spotify
+              </a>
+              <a
+                href="#releases"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-white/15 bg-white/5 px-5 py-3 text-sm font-bold text-white transition hover:bg-white/10"
+              >
+                <Disc3 className="h-5 w-5" />
+                View Releases
+              </a>
+            </motion.div>
+          </motion.div>
 
-      {/* Noise grain overlay */}
-      <div style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 100, opacity: 0.03,
-        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
-        animation: "grain 0.5s steps(2) infinite",
-      }} />
-
-      {/* Ambient glows */}
-      <div style={{ position: "fixed", top: "-20vh", left: "-10vw", width: "60vw", height: "60vh", background: "radial-gradient(ellipse, rgba(139,92,246,0.12) 0%, transparent 70%)", pointerEvents: "none", zIndex: 0 }} />
-      <div style={{ position: "fixed", top: "30vh", right: "-15vw", width: "55vw", height: "55vh", background: "radial-gradient(ellipse, rgba(236,72,153,0.08) 0%, transparent 70%)", pointerEvents: "none", zIndex: 0 }} />
-
-      {/* ===== HERO ===== */}
-      <section ref={heroRef} style={{ position: "relative", minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "center", padding: "clamp(2rem, 8vw, 6rem) clamp(1.5rem, 6vw, 5rem)", overflow: "hidden" }}>
-        {/* Decorative ring */}
-        <div style={{ position: "absolute", top: "50%", right: "clamp(1rem, 8vw, 12rem)", transform: "translate(0,-50%)", width: "clamp(280px, 40vw, 520px)", height: "clamp(280px, 40vw, 520px)", pointerEvents: "none" }}>
-          <div style={{ position: "absolute", inset: 0, borderRadius: "50%", border: "1px solid rgba(167,139,250,0.12)", animation: "spin-slow 40s linear infinite" }} />
-          <div style={{ position: "absolute", inset: "12%", borderRadius: "50%", border: "1px solid rgba(244,114,182,0.1)", animation: "spin-slow 28s linear infinite reverse" }} />
-          <div style={{ position: "absolute", inset: "26%", borderRadius: "50%", background: "radial-gradient(ellipse, rgba(139,92,246,0.2) 0%, transparent 70%)" }} />
-          {/* Artist image */}
-          <div style={{ position: "absolute", inset: "10%", borderRadius: "50%", overflow: "hidden", border: "2px solid rgba(167,139,250,0.25)", animation: "float 6s ease-in-out infinite" }}>
-            <img src={artist.profilePic} alt="Wolfer" style={{ width: "100%", height: "100%", objectFit: "cover", filter: "saturate(1.2)" }} />
-          </div>
-          {/* Pulse rings */}
-          <div style={{ position: "absolute", inset: "8%", borderRadius: "50%", border: "2px solid rgba(167,139,250,0.3)", animation: "pulse-ring 3s ease-out infinite" }} />
-          <div style={{ position: "absolute", inset: "8%", borderRadius: "50%", border: "2px solid rgba(167,139,250,0.3)", animation: "pulse-ring 3s ease-out 1.5s infinite" }} />
-        </div>
-
-        {/* Hero text */}
-        <div style={{ position: "relative", zIndex: 2, maxWidth: "clamp(300px, 50vw, 640px)" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: "1.5rem",
-            opacity: loaded ? 1 : 0, transform: loaded ? "none" : "translateY(20px)",
-            transition: "all 0.6s ease 0.1s" }}>
-            <div style={{ display: "flex", alignItems: "flex-end", gap: 3, height: 28 }}>
-              {[0, 0.1, 0.2, 0.3, 0.15, 0.05, 0.25].map((d, i) => <WaveBar key={i} delay={d} />)}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="relative"
+          >
+            <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-emerald-400/20 via-cyan-400/10 to-fuchsia-400/20 blur-2xl" />
+            <div className="relative overflow-hidden rounded-lg border border-white/10 bg-white/10 p-4 shadow-2xl shadow-black/40 backdrop-blur">
+              <div className="grid grid-cols-2 gap-3">
+                {artistProfiles.map((profile) => (
+                  <img
+                    key={profile.name}
+                    src={profile.image}
+                    alt={profile.name}
+                    className="aspect-square rounded-lg object-cover"
+                  />
+                ))}
+              </div>
+              <div className="mt-4 rounded-lg bg-black/35 p-4">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-300">Verified Spotify Data</p>
+                <p className="mt-2 text-sm leading-6 text-slate-300">
+                  Public Spotify profile names, profile images and embed players are loaded from the two artist profiles.
+                </p>
+              </div>
             </div>
-            <span style={{ fontSize: "0.72rem", fontWeight: 700, color: "rgba(255,255,255,0.4)", letterSpacing: "0.2em", textTransform: "uppercase" }}>Live & Active</span>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="px-4 py-10 sm:px-6 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {stats.map(({ label, value, icon: Icon }) => (
+            <div key={label} className="rounded-lg border border-white/10 bg-white/[0.04] p-5">
+              <Icon className="h-5 w-5 text-emerald-300" />
+              <div className="mt-4 text-3xl font-black text-white">{value}</div>
+              <div className="mt-1 text-sm font-medium text-slate-400">{label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="px-4 py-12 sm:px-6 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div>
+            <p className="text-sm font-bold uppercase tracking-[0.22em] text-fuchsia-300">Career Focus</p>
+            <h2 className="mt-3 text-3xl font-black leading-tight text-white sm:text-4xl">Music production with a software-builder mindset.</h2>
+            <p className="mt-5 text-base leading-8 text-slate-300">
+              Sasindu's artistic work blends electronic production, Sinhala vocals, cinematic scoring and studio collaboration.
+              As founder of SD Music Records, the page now presents both artist identities clearly for listeners on mobile and desktop.
+            </p>
+            <div className="mt-6 flex items-center gap-3 rounded-lg border border-white/10 bg-white/[0.04] p-4">
+              <Building2 className="h-6 w-6 shrink-0 text-cyan-300" />
+              <p className="text-sm leading-6 text-slate-300">
+                SD Music Records supports production, mentoring, mixing and release collaboration for emerging artists.
+              </p>
+            </div>
           </div>
 
-          <h1 style={{ fontSize: "clamp(4rem, 10vw, 9rem)", fontWeight: 800, lineHeight: 0.9, letterSpacing: "-0.03em", marginBottom: "1rem",
-            opacity: loaded ? 1 : 0, transform: loaded ? "none" : "translateY(40px)", transition: "all 0.8s cubic-bezier(0.34,1.2,0.64,1) 0.2s" }}>
-            <span style={{ display: "block", background: "linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.6) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>WOL</span>
-            <span style={{ display: "block", background: "linear-gradient(135deg, #a78bfa 0%, #f472b6 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>FER</span>
-          </h1>
-
-          <p style={{ fontSize: "clamp(0.8rem, 1.8vw, 0.95rem)", color: "rgba(255,255,255,0.45)", letterSpacing: "0.18em", textTransform: "uppercase", fontWeight: 600, marginBottom: "1rem",
-            opacity: loaded ? 1 : 0, transform: loaded ? "none" : "translateY(20px)", transition: "all 0.6s ease 0.4s" }}>
-            {artist.tagline}
-          </p>
-          <p style={{ fontSize: "clamp(0.75rem, 1.4vw, 0.82rem)", color: "rgba(255,255,255,0.25)", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "2.5rem",
-            opacity: loaded ? 1 : 0, transition: "opacity 0.6s ease 0.5s" }}>
-            {artist.origin}
-          </p>
-
-          {/* Genre pills */}
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: "2.5rem",
-            opacity: loaded ? 1 : 0, transform: loaded ? "none" : "translateY(16px)", transition: "all 0.6s ease 0.6s" }}>
-            {artist.genres.map(g => (
-              <span key={g} style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em",
-                padding: "5px 14px", borderRadius: 50, textTransform: "uppercase",
-                background: "rgba(167,139,250,0.1)", border: "1px solid rgba(167,139,250,0.25)", color: "#c4b5fd" }}>{g}</span>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {artistProfiles.map((profile) => (
+              <ArtistCard key={profile.name} profile={profile} />
             ))}
           </div>
-
-          <div style={{ display: "flex", gap: 12, flexWrap: "wrap",
-            opacity: loaded ? 1 : 0, transform: loaded ? "none" : "translateY(16px)", transition: "all 0.6s ease 0.7s" }}>
-            <a href="#works" style={{ padding: "0.85rem 2rem", borderRadius: 50, background: "linear-gradient(135deg, #a78bfa, #f472b6)", color: "#fff", fontWeight: 700, fontSize: "0.85rem", textDecoration: "none", letterSpacing: "0.08em", textTransform: "uppercase", transition: "opacity 0.2s", display: "inline-block" }}
-              onMouseEnter={e => e.target.style.opacity = 0.85} onMouseLeave={e => e.target.style.opacity = 1}>
-              Explore Works
-            </a>
-            <a href="https://open.spotify.com/artist/1BDgRUInxjvI7BrgASGJUd" target="_blank" rel="noopener noreferrer"
-              style={{ padding: "0.85rem 2rem", borderRadius: 50, background: "transparent", color: "#fff", fontWeight: 700, fontSize: "0.85rem", textDecoration: "none", letterSpacing: "0.08em", textTransform: "uppercase", border: "1px solid rgba(255,255,255,0.15)", transition: "all 0.2s" }}
-              onMouseEnter={e => { e.target.style.background = "rgba(255,255,255,0.06)"; e.target.style.borderColor = "rgba(255,255,255,0.3)"; }}
-              onMouseLeave={e => { e.target.style.background = "transparent"; e.target.style.borderColor = "rgba(255,255,255,0.15)"; }}>
-              Listen Now
-            </a>
-          </div>
-        </div>
-
-        {/* Scroll hint */}
-        <div style={{ position: "absolute", bottom: "2rem", left: "50%", transform: "translateX(-50%)", display: "flex", flexDirection: "column", alignItems: "center", gap: 8, opacity: 0.3 }}>
-          <span style={{ fontSize: "0.65rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>Scroll</span>
-          <div style={{ width: 1, height: 40, background: "linear-gradient(to bottom, #a78bfa, transparent)" }} />
         </div>
       </section>
 
-      {/* ===== STATS ===== */}
-      <section style={{ padding: "4rem clamp(1.5rem, 6vw, 5rem)" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))", gap: 16, maxWidth: 1100, margin: "0 auto" }}>
-          {artist.stats.map((s, i) => <StatCard key={s.label} {...s} delay={i * 0.1} />)}
-        </div>
-      </section>
-
-      {/* ===== BIO ===== */}
-      <section style={{ padding: "4rem clamp(1.5rem, 6vw, 5rem)", maxWidth: 1200, margin: "0 auto" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 420px), 1fr))", gap: "4rem", alignItems: "center" }}>
-          <div>
-            <div style={{ fontSize: "0.7rem", color: "#a78bfa", letterSpacing: "0.2em", textTransform: "uppercase", fontWeight: 700, marginBottom: "1rem" }}>About</div>
-            <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 800, lineHeight: 1.1, marginBottom: "1.5rem", color: "#fff" }}>The Sound of Sri Lanka's<br /><span style={{ background: "linear-gradient(135deg, #a78bfa, #f472b6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Electronic Soul</span></h2>
-            <p style={{ fontSize: "clamp(0.88rem, 1.6vw, 0.97rem)", color: "rgba(255,255,255,0.5)", lineHeight: 1.9, fontFamily: "'Inter', sans-serif", fontWeight: 300 }}>{artist.bio}</p>
+      <section className="px-4 py-12 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[0.22em] text-emerald-300">Sound Palette</p>
+              <h2 className="mt-3 text-3xl font-black text-white sm:text-4xl">Genres and studio strengths</h2>
+            </div>
+            <Sparkles className="hidden h-9 w-9 text-fuchsia-300 sm:block" />
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-            {[
-              { icon: "🎧", title: "SD Music Records", sub: "Founder & Studio Owner" },
-              { icon: "🎬", title: "Film Composer", sub: "Rider (2023)" },
-              { icon: "🎓", title: "Certified", sub: "Electronic Music Composition" },
-              { icon: "🌐", title: "Collaborator", sub: "Sri Lanka's Top Artists" },
-            ].map((item, i) => {
-              const [ref, inView] = useInView();
-              return (
-                <div key={i} ref={ref} style={{
-                  padding: "1.2rem", borderRadius: 16,
-                  background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)",
-                  opacity: inView ? 1 : 0, transform: inView ? "none" : "translateY(20px)",
-                  transition: `all 0.5s ease ${i * 0.1}s`,
-                }}>
-                  <div style={{ fontSize: "1.8rem", marginBottom: 8 }}>{item.icon}</div>
-                  <div style={{ fontSize: "0.85rem", fontWeight: 700, color: "#fff", marginBottom: 4 }}>{item.title}</div>
-                  <div style={{ fontSize: "0.72rem", color: "rgba(255,255,255,0.35)", lineHeight: 1.4 }}>{item.sub}</div>
-                </div>
-              );
-            })}
+          <div className="flex flex-wrap gap-3">
+            {specialties.map((item) => (
+              <span key={item} className="rounded-lg border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-slate-200">
+                {item}
+              </span>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ===== WORKS ===== */}
-      <section id="works" style={{ padding: "5rem clamp(1.5rem, 6vw, 5rem)", maxWidth: 1300, margin: "0 auto" }}>
-        <div style={{ marginBottom: "3rem" }}>
-          <div style={{ fontSize: "0.7rem", color: "#a78bfa", letterSpacing: "0.2em", textTransform: "uppercase", fontWeight: 700, marginBottom: "0.8rem" }}>Discography</div>
-          <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 800, color: "#fff", lineHeight: 1.1 }}>Works & Releases</h2>
-        </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 220px), 1fr))", gap: 20 }}>
-          {artist.works.map((work, i) => <WorkCard key={work.name} work={work} index={i} />)}
-        </div>
+      <section id="releases" className="px-4 py-12 sm:px-6 lg:px-8">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ staggerChildren: 0.06 }}
+          className="mx-auto max-w-7xl"
+        >
+          <div className="mb-8">
+            <p className="text-sm font-bold uppercase tracking-[0.22em] text-cyan-300">Discography</p>
+            <h2 className="mt-3 text-3xl font-black text-white sm:text-4xl">Selected works and releases</h2>
+          </div>
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {releases.map((release) => (
+              <ReleaseCard key={release.name} release={release} />
+            ))}
+          </div>
+        </motion.div>
       </section>
 
-      {/* ===== STREAMING ===== */}
-      <section style={{ padding: "5rem clamp(1.5rem, 6vw, 5rem)" }}>
-        <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center" }}>
-          <div style={{ fontSize: "0.7rem", color: "#a78bfa", letterSpacing: "0.2em", textTransform: "uppercase", fontWeight: 700, marginBottom: "0.8rem" }}>Listen & Connect</div>
-          <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)", fontWeight: 800, color: "#fff", marginBottom: "2.5rem" }}>Find Wolfer Everywhere</h2>
-          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 12 }}>
-            {artist.streamingLinks.map(item => <StreamingBtn key={item.platform} item={item} />)}
+      <section id="spotify" className="px-4 py-12 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[0.22em] text-emerald-300">Stream Now</p>
+              <h2 className="mt-3 text-3xl font-black text-white sm:text-4xl">Spotify artist profiles</h2>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {platforms.map((platform) => (
+                <a
+                  key={platform.label}
+                  href={platform.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2 text-sm font-semibold text-slate-200 transition hover:border-emerald-300/40 hover:text-emerald-200"
+                >
+                  {platform.label}
+                  <ExternalLink className="h-3.5 w-3.5" />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid gap-5 lg:grid-cols-2">
+            {artistProfiles.map((profile) => (
+              <div key={profile.name} className="overflow-hidden rounded-lg border border-white/10 bg-white/[0.04] p-2">
+                <iframe
+                  title={`${profile.name} Spotify embed`}
+                  src={profile.embedUrl}
+                  width="100%"
+                  height="352"
+                  className="block rounded-md"
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  loading="lazy"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ===== SPOTIFY EMBED ===== */}
-      <section style={{ padding: "3rem clamp(1.5rem, 6vw, 5rem)", maxWidth: 900, margin: "0 auto" }}>
-        <div style={{ fontSize: "0.7rem", color: "#a78bfa", letterSpacing: "0.2em", textTransform: "uppercase", fontWeight: 700, marginBottom: "1.5rem" }}>Stream Now</div>
-        <div style={{ borderRadius: 20, overflow: "hidden", border: "1px solid rgba(255,255,255,0.07)" }}>
-          <iframe style={{ borderRadius: 20, display: "block" }}
-            src="https://open.spotify.com/embed/artist/1BDgRUInxjvI7BrgASGJUd?utm_source=generator&theme=0"
-            width="100%" height="352" frameBorder="0" allowFullScreen
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" />
-        </div>
-      </section>
-
-      {/* ===== FOOTER ===== */}
-      <footer style={{ padding: "3rem clamp(1.5rem, 6vw, 5rem)", borderTop: "1px solid rgba(255,255,255,0.05)", marginTop: "2rem" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto", display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: "1rem" }}>
-          <div>
-            <div style={{ fontSize: "1.5rem", fontWeight: 800, background: "linear-gradient(135deg, #a78bfa, #f472b6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>WOLFER</div>
-            <div style={{ fontSize: "0.72rem", color: "rgba(255,255,255,0.25)", marginTop: 4 }}>© 2025 SD Music Records · All rights reserved</div>
+      <footer className="border-t border-white/10 px-4 py-8 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex items-center gap-2 font-bold text-white">
+            <Radio className="h-4 w-4 text-emerald-300" />
+            WOLFER · SD Music Records
           </div>
-          <div style={{ fontSize: "0.72rem", color: "rgba(255,255,255,0.2)", letterSpacing: "0.1em" }}>Crafted in Sri Lanka 🇱🇰</div>
+          <p>Artist page updated for responsive mobile and desktop viewing.</p>
         </div>
       </footer>
     </div>
